@@ -49,7 +49,7 @@ class Header extends Component {
             </div>
             <div className="header-yellow-btn">
               VIEW MORE
-              <i className="fas fa-chevron-right" />
+              <i class="fa-icon-chevron-right" />
             </div>
           </div>
         </div>
