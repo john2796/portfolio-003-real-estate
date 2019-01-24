@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
+import Layout from "./components/layout/Layout";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>testing</h1>
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <React.Fragment>
+      <Layout />
+    </React.Fragment>
+  );
+};
 
 export default App;
