@@ -46,10 +46,17 @@ class Header extends Component {
                   are based.
                 </p>
               </div>
+
+              <div className="header-carousel-indicators">
+                <div className="tp-bullet selected" />
+                <div className="tp-bullet" />
+                <div className="tp-bullet" />
+              </div>
             </div>
+
             <div className="header-yellow-btn">
               VIEW MORE
-              <i class="fa-icon-chevron-right" />
+              <i className="fas fa-chevron-right" />
             </div>
           </div>
         </div>

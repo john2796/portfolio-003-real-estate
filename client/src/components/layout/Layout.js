@@ -5,6 +5,7 @@ const Layout = () => {
   return (
     <React.Fragment>
       <Header />
+      <p>search...</p>
     </React.Fragment>
   );
 };

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,700");
+
 .bg-banner-header {
   background-repeat: no-repeat;
   background-image: url(https://losangeles.wpresidence.net/wp-content/uploads/2018/09/headerla.jpg);
@@ -19,15 +20,19 @@
   padding: 10px 0;
 
   i {
-    width: 13px;
+    margin: 0 9px;
+    font-size: 15px;
     margin-right: 3px;
+  }
+  .fa-map-marker {
+    margin-left: 15px;
   }
 }
 .main-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  margin: -10px 0 10px 0;
 
   a {
     color: #fff;
@@ -44,6 +49,13 @@
     }
   }
 }
+
+.header-info-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .header-title {
   z-index: 5;
   white-space: nowrap;
@@ -55,6 +67,8 @@
   visibility: inherit;
   transition: none 0s ease 0s;
   text-align: left;
+  margin-top: 200px;
+  text-transform: uppercase;
 }
 .header-ptag {
   z-index: 6;
@@ -63,7 +77,7 @@
   white-space: normal;
   font-size: 20px;
   line-height: 35px;
-  font-weight: 300;
+  font-weight: 100;
   color: rgb(255, 255, 255);
   font-family: poppins;
   visibility: inherit;
@@ -72,6 +86,7 @@
   letter-spacing: 0px;
   min-height: 71px;
   max-height: 71px;
+  margin: 40px 0;
 }
 .header-yellow-btn {
   z-index: 7;
@@ -90,21 +105,34 @@
   padding: 18px 30px 16px;
   letter-spacing: 3px;
   display: block;
-  width: 113px;
+  width: 123px;
   margin: 67px 0;
+  margin-bottom: 200px;
   &:hover {
     color: rgb(17, 17, 17);
     background-color: rgb(255, 255, 255);
   }
 }
-.fa-icon-chevron-right {
-  font-size: 12px;
-  margin: 0px 0px 0px 10px;
-  transition: none 0s ease 0s;
-  text-align: inherit;
-  line-height: 12px;
-  border-width: 0px;
-  padding: 0px;
-  letter-spacing: 3px;
-  font-weight: 400;
+.fa-chevron-right {
+  font-size: 14px;
+  margin-left: 10px;
+  &:hover {
+    color: rgb(17, 17, 17);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+.header-carousel-indicators {
+  margin-top: 200px;
+  .tp-bullet {
+    width: 15px;
+    height: 15px;
+    margin: 5px 0;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 0 2px rgb(255, 255, 255);
+  }
+  .selected {
+    background: #fff;
+  }
 }
