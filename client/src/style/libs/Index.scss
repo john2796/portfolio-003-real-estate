@@ -1,0 +1,12 @@
+// ================= Variables and Mixins
+//@import "./libs/variables";
+//@import "./libs/mixins";
+
+// ================= General Styles
+@import "./reset";
+@import "./global";
+
+// ================= Components
+@import "../../components/layout/HeaderContainer/Header";
+@import "../../components/layout/MainContainer/Wpresidence/Wpresidence";
+@import "../../components/layout/MainContainer/LatestListing/LatestListing";

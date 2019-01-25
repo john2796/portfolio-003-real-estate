@@ -1,10 +1,13 @@
 import React from "react";
 import Layout from "./components/layout/Layout";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const App = () => {
   return (
     <React.Fragment>
-      <Layout />
+      <Router>
+        <Layout />
+      </Router>
     </React.Fragment>
   );
 };
