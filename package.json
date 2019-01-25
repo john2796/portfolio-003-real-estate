@@ -1,0 +1,33 @@
+{
+  "name": "portfolio_03-real-estate",
+  "version": "1.0.0",
+  "description": "build real estate website using mern # mern-stack MongoDB, Expressjs, React/Redux, Nodejs",
+  "main": "server.js",
+  "scripts": {
+    "client-install": "--npm install prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john2796/portfolio-003-real-estate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/john2796/portfolio-003-real-estate/issues"
+  },
+  "homepage": "https://github.com/john2796/portfolio-003-real-estate#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.6",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.18.9"
+  }
+}
