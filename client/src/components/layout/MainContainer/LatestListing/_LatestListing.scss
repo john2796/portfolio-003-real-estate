@@ -20,20 +20,20 @@
   align-items: center;
   font-family: "Poppins";
   padding: 20px 0;
-  a {
+  h5 {
     display: block;
     background: #dedede;
     text-decoration: none;
     cursor: pointer;
     padding: 2px 18px;
     border-radius: 2px;
-    color: #445061;
+    color: #3a4659;
     line-height: 1.8;
     margin: 0 15px 20px;
     font-size: 13px;
     transition: all 0.15s ease;
     &:hover {
-      background-color: #7a828d47;
+      background-color: #77b0cf2b;
     }
   }
 }
@@ -45,4 +45,20 @@
 
 .listing-wrapper {
   background-color: #f7f7f7;
+}
+
+.listing-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.tab {
+  display: none;
+}
+.active-tab {
+  display: block;
+  background: #fdcc01;
+  color: #fff;
 }
