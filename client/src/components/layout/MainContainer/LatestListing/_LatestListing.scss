@@ -1,6 +1,48 @@
 .listing-title {
   font-weight: bold;
   color: #303030;
-  margin-top: 30px;
+  padding-top: 41px;
   margin-bottom: 5px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 38px;
+  font-family: "Poppins";
+}
+
+.current-listing {
+  background-color: #ffcc00;
+  color: #ffff;
+}
+
+.listing-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins";
+  padding: 20px 0;
+  a {
+    display: block;
+    background: #dedede;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 2px 18px;
+    border-radius: 2px;
+    color: #445061;
+    line-height: 1.8;
+    margin: 0 15px 20px;
+    font-size: 13px;
+    transition: all 0.15s ease;
+    &:hover {
+      background-color: #7a828d47;
+    }
+  }
+}
+
+.uvc-svg-triangle {
+  background-color: #f7f7f7;
+  margin-bottom: -10px;
+}
+
+.listing-wrapper {
+  background-color: #f7f7f7;
 }
