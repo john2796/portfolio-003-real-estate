@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "./HeaderContainer/Header";
-import Wpresidence from "./MainContainer/Wpresidence/Wpresidence";
+import Main from "./MainContainer/Main";
+import Footer from "./FooterContainer/Footer";
 
 const Layout = () => {
   return (
     <React.Fragment>
       <Header />
-      <p>search...</p>
-      <Wpresidence />
+      <Main />
+      <Footer />
     </React.Fragment>
   );
 };
