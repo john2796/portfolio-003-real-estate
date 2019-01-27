@@ -8,7 +8,12 @@ import {
   CardTitle,
   CardSubtitle,
   CardImgOverlay,
-  Button
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption,
+  Tooltip
 } from "reactstrap";
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
 const cardData = [
@@ -43,13 +48,30 @@ const cardData = [
     author: "author field testing here"
   }
 ];
+
+const items = [
+  {
+    src:
+      "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
+  },
+  {
+    src:
+      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+  },
+  {
+    src:
+      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+  }
+];
 class LatestListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tabs: tabData,
       cardData,
-      selected: "Apartments"
+      selected: "Apartments",
+      activeIndex: 0,
+      tooltipOpen: false
     };
   }
 
@@ -66,11 +88,46 @@ class LatestListing extends Component {
     this.setState({ selected: tab });
   };
 
+  next = () => {
+    if (this.animating) return;
+    const nextIndex =
+      this.state.activeIndex === items.length - 1
+        ? 0
+        : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
+  };
+
+  previous = () => {
+    if (this.animating) return;
+    const nextIndex =
+      this.state.activeIndex === 0
+        ? items.length - 1
+        : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
+  };
+
+  toggle = () => {
+    this.setState({
+      tooltipOpen: !this.state.tooltipOpen
+    });
+  };
+
   render() {
-    const { tabs, selectedTab, selected } = this.state;
+    const { tabs, selectedTab, selected, activeIndex } = this.state;
     console.log(selected);
     console.log(this.filterData());
 
+    const slides = items.map(item => {
+      return (
+        <CarouselItem key={item.src}>
+          <div
+            className="carousel-parent"
+            style={{ backgroundImage: `url(${item.src})`, height: 320 }}
+            alt={item.altText}
+          />
+        </CarouselItem>
+      );
+    });
     return (
       <React.Fragment>
         <svg
@@ -102,42 +159,68 @@ class LatestListing extends Component {
             return (
               <div key={i} className="listing-card ">
                 <Card>
-                  <CardImg
-                    top
-                    width="100%"
-                    src="https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
-                    alt="Card image cap"
-                    className="card-image"
-                  />
+                  <Carousel activeIndex={activeIndex}>
+                    <div className="carousel-info">
+                      <p class="rentals ">Rentals</p>
+                      <div>
+                        <i className="far fa-heart" id="favorites-heart" />
+                        <Tooltip
+                          placement="top"
+                          isOpen={this.state.tooltipOpen}
+                          target="favorites-heart"
+                          toggle={this.toggle}
+                        >
+                          add to <br /> favorites
+                        </Tooltip>
+                      </div>
+                    </div>
+                    {slides}
 
-                  {/* <CardImgOverlay>
-                    <CardTitle>Card Title</CardTitle>
-                    <CardText>
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </CardText>
-                    <CardText>
-                      <small className="text-muted">
-                        Last updated 3 mins ago
-                      </small>
-                    </CardText>
-                  </CardImgOverlay> */}
+                    <CarouselControl
+                      direction="prev"
+                      directionText="Previous"
+                      onClickHandler={this.previous}
+                    />
+                    <CarouselControl
+                      direction="next"
+                      directionText="Next"
+                      onClickHandler={this.next}
+                    />
+                  </Carousel>
                   <CardBody>
-                    <CardTitle>
-                      FeaturedRentals Luxury Villa In Rego Park
-                    </CardTitle>
+                    <CardTitle>Luxury Villa In Rego Park</CardTitle>
                     <CardSubtitle> $ 2,100 / month</CardSubtitle>
                     <CardText>
                       Just steps away from QM2 express bus to Manhattan and
                       local buses; only minutes from the LIRR. Walki [more]
                     </CardText>
-                    <div>
-                      <p>icons and sqft2</p>
+
+                    <div className="property_listing_details">
+                      {" "}
+                      <span className="infobath_unit_type2">
+                        <i className="fas fa-tint" />4
+                      </span>{" "}
+                      <span className="infogarage_unit_type2">
+                        <i className="fas fa-car" />
+                        10
+                      </span>{" "}
+                      <span className="infosize_unit_type2">
+                        <i className="far fa-map" />5 000,00 ft<sup>2</sup>
+                      </span>
                     </div>
-                    <div>
-                      <h3>Janet Richmond</h3>
-                      <span>icons here</span>
+
+                    <div className="property-location">
+                      <div className="property-name">
+                        <img
+                          src="https://losangeles.wpresidence.net/wp-content/uploads/2014/05/agent2-1-120x120.jpg"
+                          alt=""
+                        />
+                        <h5>Michael Suttherland</h5>
+                      </div>
+                      <span className="property-share">
+                        <i className="fas fa-share-alt" />
+                        <i className="fas fa-plus" />
+                      </span>
                     </div>
                   </CardBody>
                 </Card>

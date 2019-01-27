@@ -60,7 +60,7 @@
 .active-tab {
   display: block;
   background: $yellow;
-  color: #fff;
+  color: $white;
 }
 
 .card-image {
@@ -77,4 +77,136 @@
   font-family: "Poppins";
   font-weight: 700;
   font-size: 1.6rem;
+  margin: 8px 0;
+  transition: $main-transition;
+  &:hover {
+    color: $yellow;
+  }
+}
+.card-subtitle {
+  color: $yellow;
+
+  font-size: 18px;
+  margin-top: 5px;
+  line-height: 22px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.card-text {
+  line-height: 1.8em;
+  margin: 10px 0;
+  max-height: 160px;
+  font-size: 1.3rem;
+  color: $lightgray;
+}
+
+.property_listing_details {
+  display: flex;
+  align-items: center;
+  padding: 5px 0 25px 0;
+  .fas,
+  .far {
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
+  span {
+    margin: 0 7px;
+    color: $darkgray;
+  }
+  .infobath_unit_type2 {
+    font-size: 1.2rem;
+    // &::before {
+    //   content: "\f043";
+    //   font: normal normal normal 14px/1;
+    //   margin-right: 7px;
+    // }
+  }
+}
+.property-location {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid#eef3f6;
+  padding-top: 22px;
+  justify-content: space-between;
+
+  .property-share {
+    color: $darkgray;
+    font-size: 1.6rem;
+    .fas {
+      &:hover {
+        color: $yellow;
+        transition: $main-transition;
+      }
+    }
+    .fa-plus {
+      margin-left: 15px;
+      margin-right: 17px;
+    }
+  }
+  .property-name {
+    display: flex;
+    align-items: center;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    h5 {
+      margin-left: 10px;
+      font-weight: 600;
+      font-size: 1.4rem;
+      font-family: "Poppins";
+      color: $lightgray;
+      &:hover {
+        color: $yellow;
+        transition: $main-transition;
+      }
+    }
+  }
+}
+.rentals {
+  background-color: $yellow;
+  display: inline-block;
+  text-align: right;
+  color: $white;
+  font-size: 12px;
+  float: right;
+  color: $white;
+  position: relative;
+  right: 20px;
+  border-radius: 2px;
+  padding: 1px 15px;
+  line-height: 17px;
+  top: 20px;
+  text-align: center;
+}
+
+.carousel-parent {
+  position: relative;
+  transition: all 0.5s ease;
+  background-position: center;
+  &:hover {
+    transform: scale(1.2);
+    filter: brightness(80%);
+  }
+}
+.carousel-info {
+  position: absolute;
+  z-index: 999;
+  right: 0;
+}
+.fa-heart {
+  position: absolute;
+  bottom: 0;
+  font-size: 2rem;
+  right: 35px;
+  top: 270px;
+  width: auto;
+  height: auto;
+  padding-top: 0;
+  z-index: 9;
+  color: $white;
+}
+.tooltip {
+  font-size: 1.4rem;
+  color: $white;
 }
