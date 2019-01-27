@@ -1,47 +1,52 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { Route, NavLink } from "react-router-dom";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  CardImgOverlay,
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-  Tooltip
-} from "reactstrap";
+const ListinCard = lazy(() => import("./ListingCard"));
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
 const cardData = [
   {
+    id: 1,
     headline: "Testing headline",
     tab: "Apartments",
     img: "image goes here",
-    author: "author field testing here"
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
   },
   {
+    id: 2,
     headline: "Testing headline",
     tab: "Houses",
     img: "image goes here",
     author: "author field testing here"
   },
   {
+    id: 3,
     headline: "Testing headline",
     tab: "Villas",
     img: "image goes here",
     author: "author field testing here"
   },
   {
+    id: 4,
     headline: "Testing headline",
     tab: "Retail",
     img: "image goes here",
     author: "author field testing here"
   },
   {
+    id: 5,
     headline: "Testing headline",
     tab: "Land",
     img: "image goes here",
@@ -49,20 +54,6 @@ const cardData = [
   }
 ];
 
-const items = [
-  {
-    src:
-      "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
-  },
-  {
-    src:
-      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
-  },
-  {
-    src:
-      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
-  }
-];
 class LatestListing extends Component {
   constructor(props) {
     super(props);
@@ -88,20 +79,20 @@ class LatestListing extends Component {
     this.setState({ selected: tab });
   };
 
-  next = () => {
-    if (this.animating) return;
+  next = id => {
+    const item = cardData.find(item => item.id === id);
     const nextIndex =
-      this.state.activeIndex === items.length - 1
+      this.state.activeIndex === item.images.length - 1
         ? 0
         : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   };
 
-  previous = () => {
-    if (this.animating) return;
+  previous = id => {
+    const item = cardData.find(item => item.id === id);
     const nextIndex =
       this.state.activeIndex === 0
-        ? items.length - 1
+        ? item.images.length - 1
         : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   };
@@ -113,21 +104,7 @@ class LatestListing extends Component {
   };
 
   render() {
-    const { tabs, selectedTab, selected, activeIndex } = this.state;
-    console.log(selected);
-    console.log(this.filterData());
-
-    const slides = items.map(item => {
-      return (
-        <CarouselItem key={item.src}>
-          <div
-            className="carousel-parent"
-            style={{ backgroundImage: `url(${item.src})`, height: 320 }}
-            alt={item.altText}
-          />
-        </CarouselItem>
-      );
-    });
+    const { tabs, selected, activeIndex } = this.state;
     return (
       <React.Fragment>
         <svg
@@ -148,82 +125,41 @@ class LatestListing extends Component {
             {tabs.map((tab, i) => (
               <h5
                 key={i}
-                className={tab === selectedTab ? "tab active-tab" : "tab"}
+                className={tab === selected ? "tab active-tab" : "tab"}
                 onClick={() => this.selectedTab(tab)}
               >
                 {tab}
               </h5>
             ))}
           </nav>
-          {this.filterData().map((item, i) => {
+          {this.filterData().map(item => {
             return (
-              <div key={i} className="listing-card ">
-                <Card>
-                  <Carousel activeIndex={activeIndex}>
-                    <div className="carousel-info">
-                      <p class="rentals ">Rentals</p>
-                      <div>
-                        <i className="far fa-heart" id="favorites-heart" />
-                        <Tooltip
-                          placement="top"
-                          isOpen={this.state.tooltipOpen}
-                          target="favorites-heart"
-                          toggle={this.toggle}
-                        >
-                          add to <br /> favorites
-                        </Tooltip>
-                      </div>
-                    </div>
-                    {slides}
-
-                    <CarouselControl
-                      direction="prev"
-                      directionText="Previous"
-                      onClickHandler={this.previous}
-                    />
-                    <CarouselControl
-                      direction="next"
-                      directionText="Next"
-                      onClickHandler={this.next}
-                    />
-                  </Carousel>
-                  <CardBody>
-                    <CardTitle>Luxury Villa In Rego Park</CardTitle>
-                    <CardSubtitle> $ 2,100 / month</CardSubtitle>
-                    <CardText>
-                      Just steps away from QM2 express bus to Manhattan and
-                      local buses; only minutes from the LIRR. Walki [more]
-                    </CardText>
-
-                    <div className="property_listing_details">
-                      {" "}
-                      <span className="infobath_unit_type2">
-                        <i className="fas fa-tint" />4
-                      </span>{" "}
-                      <span className="infogarage_unit_type2">
-                        <i className="fas fa-car" />
-                        10
-                      </span>{" "}
-                      <span className="infosize_unit_type2">
-                        <i className="far fa-map" />5 000,00 ft<sup>2</sup>
-                      </span>
-                    </div>
-
-                    <div className="property-location">
-                      <div className="property-name">
-                        <img
-                          src="https://losangeles.wpresidence.net/wp-content/uploads/2014/05/agent2-1-120x120.jpg"
-                          alt=""
-                        />
-                        <h5>Michael Suttherland</h5>
-                      </div>
-                      <span className="property-share">
-                        <i className="fas fa-share-alt" />
-                        <i className="fas fa-plus" />
-                      </span>
-                    </div>
-                  </CardBody>
-                </Card>
+              <div key={item.id} className="listing-card ">
+                {item.tab}
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ListinCard
+                    id={item.id}
+                    images={item.images}
+                    tooltipOpen={this.state.tooltipOpen}
+                    toggle={this.toggle}
+                    previous={this.previous}
+                    next={this.next}
+                    activeIndex={activeIndex}
+                    selected={selected}
+                    selectedTab={this.selectedTab}
+                  />
+                  <ListinCard
+                    id={item.id}
+                    images={item.images}
+                    tooltipOpen={this.state.tooltipOpen}
+                    toggle={this.toggle}
+                    previous={this.previous}
+                    next={this.next}
+                    activeIndex={activeIndex}
+                    selected={selected}
+                    selectedTab={this.selectedTab}
+                  />
+                </Suspense>
               </div>
             );
           })}
