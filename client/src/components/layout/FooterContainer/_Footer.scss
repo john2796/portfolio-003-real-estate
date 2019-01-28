@@ -1,0 +1,20 @@
+.footer {
+  background: $footergray;
+}
+
+.footer-flexparent {
+  display: flex;
+  // justify-content: center;
+  align-items: baseline;
+  .footer-item {
+    border: 1px solid orange;
+  }
+  p {
+    color: $footerptag;
+  }
+  .footer-item {
+    .footer-item-title {
+      color: $white;
+    }
+  }
+}
