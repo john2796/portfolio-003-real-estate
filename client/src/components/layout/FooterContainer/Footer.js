@@ -77,17 +77,18 @@ class Footer extends Component {
                     <img src={list.image} alt={list.title} />
                     <div className="listing-right-item">
                       <p>{list.title}</p>
-                      <p> {list.price}</p>
+                      <p className="item-price"> {list.price}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            <div className="footer-item">
+            <div className="footer-item footer-search">
               <h3 className="footer-item-title">Search</h3>
               <input type="text" placeholder="Type Keyword" />
-              <button>Search</button>
+              <br />
+              <button className="secondary-btn search-btn">Search</button>
             </div>
           </div>
         </div>

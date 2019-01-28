@@ -4,17 +4,69 @@
 
 .footer-flexparent {
   display: flex;
-  // justify-content: center;
   align-items: baseline;
-  .footer-item {
-    border: 1px solid orange;
-  }
+  justify-content: center;
   p {
     color: $footerptag;
   }
   .footer-item {
+    margin: 0 20px;
+    max-width: 240px;
+    min-width: 240px;
+
+    a {
+      color: $footerptag;
+      &:hover {
+        color: $yellow;
+      }
+    }
+    p {
+      color: $footerptag;
+      font-size: 1.3rem;
+      i {
+        margin-right: 13px;
+      }
+    }
     .footer-item-title {
       color: $white;
+      padding: 50px 0 20px 0;
+      text-transform: uppercase;
     }
+    .item-price {
+      color: $yellow;
+    }
+    .listings-item {
+      display: flex;
+      margin-bottom: 15px;
+      .listing-right-item {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+.fa-arrow-right {
+  margin-left: 4px;
+}
+.footer-search {
+  //border: 1px solid pink;
+
+  input {
+    width: 100%;
+  }
+  input[type="text"] {
+    font-size: 13px;
+    padding: 9px 0 9px 9px;
+    color: #8593a9;
+    border: 1px solid #dde4e9;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: none;
+    -webkit-appearance: none;
+  }
+  .search-btn {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
   }
 }
