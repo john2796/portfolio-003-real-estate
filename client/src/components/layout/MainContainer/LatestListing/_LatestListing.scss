@@ -97,7 +97,7 @@
     max-width: 500px;
   }
   @include sm {
-    max-width: 570px;
+    max-width: 380px;
   }
 }
 .card-title {
@@ -265,10 +265,10 @@
       right: 444px;
     } // Small tablets (portrait view) 768px;
     @include sm {
-      right: 394px;
+      right: 324px;
     } // Small tablets and large smartphones (landscape view) 576px;
     @include xs {
-      right: 294px;
+      right: 194px;
     } // Tiny phones 425px;
   }
 }

@@ -25,7 +25,7 @@ class Footer extends Component {
     return (
       <React.Fragment>
         <div className="footer">
-          <div className="container footer-flexparent">
+          <div className="footer-flexparent">
             <div className="footer-item">
               <h3 className="footer-item-title">About</h3>
               <p>

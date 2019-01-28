@@ -6,6 +6,13 @@
   display: flex;
   align-items: baseline;
   justify-content: center;
+  flex-wrap: wrap;
+
+  @include lg {
+    flex-direction: column;
+    margin-left: 20px;
+  } // Tablets and small desktops 992px;
+
   p {
     color: $footerptag;
   }
@@ -13,7 +20,12 @@
     margin: 0 20px;
     max-width: 240px;
     min-width: 240px;
-
+    @include xl {
+      margin: 0;
+    } // Large tablets and desktops 1200px;
+    @include lg {
+      max-width: 100%;
+    } // Tablets and small desktops 992px;
     a {
       color: $footerptag;
       &:hover {
@@ -49,8 +61,9 @@
   margin-left: 4px;
 }
 .footer-search {
-  //border: 1px solid pink;
-
+  @include lg {
+    width: 95%;
+  }
   input {
     width: 100%;
   }
@@ -67,6 +80,6 @@
   .search-btn {
     width: 100%;
     height: 40px;
-    margin-top: 10px;
+    margin-bottom: 100px;
   }
 }

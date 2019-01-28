@@ -7,13 +7,13 @@
   background-size: cover;
 }
 .parallax-item {
-  padding: 150px 0;
+  padding: 170px 0;
   font-size: 1.5rem;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  flex-wrap: wrap;
   .number {
     color: $white;
     font-size: 5.7rem;
@@ -26,7 +26,7 @@
     justify-content: center;
     align-items: baseline;
     width: 245px;
-    margin-right: 40px;
+    margin-right: 10px;
     font-size: 18px;
   }
 }

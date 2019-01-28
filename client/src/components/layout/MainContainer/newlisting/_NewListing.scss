@@ -9,17 +9,53 @@
   margin: 40px 0;
   color: $white;
 }
+
+.newlisting-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid green;
+}
+
+.newlisting-flex-parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
 .newlisting-card {
   border-radius: 2px;
   background-position: center;
   background-size: cover;
   object-fit: cover;
-  max-height: 500px;
+  // max-height: 500px;
   min-height: 380px;
-  max-width: 345px;
   min-width: 345px;
+  // max-width: 345px;
   margin: 10px;
   cursor: pointer;
+  @include xl {
+    min-height: 380px;
+    min-width: 305px;
+  } // Large tablets and desktops 1200px;
+  @include lg {
+    min-height: 380px;
+    min-width: 230px;
+  } // Tablets and small desktops 992px;
+  @include md {
+    min-height: 380px;
+    min-width: 600px;
+  } // Small tablets (portrait view) 768px;
+  @include sm {
+    min-height: 380px;
+    min-width: 450px;
+  } // Small tablets and large smartphones (landscape view) 576px;
+  @include xs {
+    min-height: 380px;
+    min-width: 350px;
+  } // Tiny phones 425px;
 }
 
 .newlist-card-item {
@@ -46,12 +82,4 @@
     font-size: 1.4rem;
     text-transform: uppercase;
   }
-}
-
-.newlisting-flex-parent {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 70px;
 }

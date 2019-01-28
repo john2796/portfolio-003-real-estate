@@ -4,7 +4,7 @@ class ClientStats extends Component {
   render() {
     return (
       <div className="parallax">
-        <div className="parallax-item container">
+        <div className="parallax-item">
           <p>
             <span className="number">12</span>
             Years since we started this agency

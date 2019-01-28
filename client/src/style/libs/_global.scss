@@ -9,7 +9,7 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  border: 1px solid red;
+  border: 1px solid green;
 }
 
 .main-subtitle {
@@ -43,4 +43,7 @@ body {
   &:hover {
     background: $black;
   }
+}
+input[type="search"] {
+  -webkit-appearance: none;
 }
