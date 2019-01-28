@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 const latestlisting = [
   {
     image:
@@ -44,36 +43,36 @@ class Footer extends Component {
             <div className="footer-item">
               <h3 className="footer-item-title">Contact</h3>
               <p>
-                <i class="fas fa-building" /> 3755 Commercial St SE Salem,
+                <i className="fas fa-building" /> 3755 Commercial St SE Salem,
                 Corner with Sunny Boulevard, 3755 Commercial OR 97302
               </p>
               <p>
-                <i class="fa fa-phone" />
+                <i className="fa fa-phone" />
                 (305) 555-4446
               </p>
               <p>
-                <i class="fa fa-print" />
+                <i className="fa fa-print" />
                 (305) 555-4446
               </p>
               <p>
-                <i class="far fa-envelope" />
+                <i className="far fa-envelope" />
                 youremails@gmail.com
               </p>
               <p>
-                <i class="fab fa-skype" />
+                <i className="fab fa-skype" />
                 yourskypeid
               </p>
               <p>
-                <i class="fas fa-desktop" />
+                <i className="fas fa-desktop" />
                 https://yoururl.com
               </p>
             </div>
 
             <div className="footer-item">
               <h3 className="footer-item-title">Latest Listings</h3>
-              {latestlisting.map(list => {
+              {latestlisting.map((list, index) => {
                 return (
-                  <div className="listings-item">
+                  <div className="listings-item" key={index}>
                     <img src={list.image} alt={list.title} />
                     <div className="listing-right-item">
                       <p>{list.title}</p>
@@ -91,10 +90,18 @@ class Footer extends Component {
               <button className="secondary-btn search-btn">Search</button>
             </div>
           </div>
+          <div className="footer-buyerchoice">
+            <nav>
+              <p>Buyer's Choice</p>
+              <div className="prvcy">
+                <p className="first-ptag">Privacy Policy</p>
+                <p>Terms of Use</p>
+              </div>
+            </nav>
+          </div>
         </div>
       </React.Fragment>
     );
   }
 }
-
 export default Footer;

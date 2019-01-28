@@ -33,6 +33,10 @@ class Header extends Component {
                 <a href="/">Blog</a>
                 <a href="/">Features</a>
                 <a href="/">Home</a>
+                <a href="/">facebook</a>
+                <a href="/">pinterest</a>
+                <a href="/">twitter</a>
+                <a href="/">instagram</a>
               </div>
             </nav>
             <div className="header-info-flex">
