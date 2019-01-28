@@ -152,7 +152,7 @@ class LatestListing extends Component {
 
   filterData = () => {
     const cardData = this.state.cardData;
-    if (this.state.selected === "All") {
+    if (this.state.selected === "Change later") {
       return this.state.cardData;
     } else {
       return cardData.filter(data => data.tab === this.state.selected);
@@ -191,6 +191,11 @@ class LatestListing extends Component {
                 key={i}
                 className={tab === selected ? "tab active-tab" : "tab"}
                 onClick={() => this.selectedTab(tab)}
+                style={
+                  tab !== selected
+                    ? { background: "#faca00", color: "#fffefc" }
+                    : null
+                }
               >
                 {tab}
               </h5>

@@ -1,9 +1,8 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,700");
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600&subset=devanagari");
 
-* {
-  font-size: 62.5%;
-  margin: 0;
-  padding: 0;
+html,
+body {
+  font-family: "Poppins", sans-serif;
 }
 
 .container {
@@ -11,4 +10,15 @@
   max-width: 1200px;
   margin: 0 auto;
   border: 1px solid red;
+}
+
+.main-subtitle {
+  font-weight: bold;
+  color: #303030;
+  padding-top: 41px;
+  margin-bottom: 5px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 38px;
+  font-family: "Poppins";
 }

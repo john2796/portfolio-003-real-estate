@@ -20,6 +20,10 @@
   align-items: center;
   font-family: "Poppins";
   padding: 20px 0;
+  flex-wrap: wrap;
+  @include sm {
+    flex-direction: column;
+  }
   h5 {
     display: block;
     background: #dedede;
@@ -32,10 +36,26 @@
     margin: 0 15px 20px;
     font-size: 13px;
     transition: all 0.15s ease;
+    @include sm {
+      max-width: 150px;
+      padding: 2px 150px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     &:hover {
       background-color: #77b0cf2b;
     }
   }
+}
+.tab {
+  display: none;
+  background: #dedede;
+}
+.active-tab {
+  display: block;
+  color: $white;
 }
 
 .uvc-svg-triangle {
@@ -55,15 +75,6 @@
   @include md {
     flex-direction: column;
   }
-}
-
-.tab {
-  display: none;
-}
-.active-tab {
-  display: block;
-  background: $yellow;
-  color: $white;
 }
 
 .card-image {
@@ -239,7 +250,6 @@
   position: absolute;
   top: 105px;
   right: 25px;
-
   .fas {
     background: transparent;
     cursor: pointer;
@@ -249,6 +259,21 @@
   .fa-chevron-left {
     right: 294px;
     position: absolute;
+    @include xl {
+      right: 394px;
+    } // Large tablets and desktops 1200px;
+    @include lg {
+      right: 344px;
+    } // Tablets and small desktops 992px;
+    @include md {
+      right: 444px;
+    } // Small tablets (portrait view) 768px;
+    @include sm {
+      right: 394px;
+    } // Small tablets and large smartphones (landscape view) 576px;
+    @include xs {
+      right: 294px;
+    } // Tiny phones 425px;
   }
 }
 
