@@ -22,3 +22,25 @@ body {
   line-height: 38px;
   font-family: "Poppins";
 }
+
+.secondary-btn {
+  cursor: pointer;
+  height: 45px;
+  width: 205px;
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  background-color: $yellow;
+  text-transform: uppercase;
+  color: $white;
+  font-weight: 500;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: none;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  &:hover {
+    background: $black;
+  }
+}

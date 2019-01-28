@@ -219,6 +219,7 @@ class LatestListing extends Component {
               );
             })}
           </div>
+          <button className="secondary-btn">Load More Listings</button>
         </div>
       </React.Fragment>
     );

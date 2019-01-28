@@ -10,7 +10,7 @@
 }
 
 .current-listing {
-  background-color: #ffcc00;
+  background-color: $yellow;
   color: $white;
 }
 
@@ -65,6 +65,7 @@
 
 .listing-wrapper {
   background-color: #f7f7f7;
+  padding-bottom: 70px;
 }
 
 .listing-card {
@@ -141,11 +142,6 @@
   }
   .infobath_unit_type2 {
     font-size: 1.2rem;
-    // &::before {
-    //   content: "\f043";
-    //   font: normal normal normal 14px/1;
-    //   margin-right: 7px;
-    // }
   }
 }
 .property-location {

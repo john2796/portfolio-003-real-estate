@@ -6,5 +6,52 @@
 }
 
 .white {
+  margin: 40px 0;
   color: $white;
+}
+.newlisting-card {
+  border-radius: 2px;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  max-height: 500px;
+  min-height: 380px;
+  max-width: 345px;
+  min-width: 345px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.newlist-card-item {
+  transition: all 0.4s linear;
+  font-family: "Poppins";
+  color: $white;
+  text-align: center;
+  padding-top: 250px;
+  background-color: rgba(0, 0, 0, 0.429);
+  height: 100%;
+  width: 100%;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+  }
+  span {
+    font-size: 1.2rem;
+  }
+  p {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+}
+
+.newlisting-flex-parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
 }
