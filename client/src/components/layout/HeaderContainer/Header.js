@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 
 class Header extends Component {
   render() {
@@ -14,26 +13,26 @@ class Header extends Component {
             </p>
             <nav className="main-nav">
               <div>
-                <a href="#" className="logo">
+                <a href="/" className="logo">
                   <div>
                     <img
                       className="logo-image"
                       style={{ marginTop: 0 }}
                       src="https://losangeles.wpresidence.net/wp-content/uploads/2018/06/logo2018-v1-la.png"
-                      className="img-responsive retina_ready"
+                      // className="img-responsive retina_ready"
                       alt="logo"
                     />
                   </div>
                 </a>
               </div>
               <div>
-                <a href="#">Home</a>
-                <a href="#">Demos</a>
-                <a href="#">Properties</a>
-                <a href="#">Agents</a>
-                <a href="#">Blog</a>
-                <a href="#">Features</a>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
+                <a href="/">Demos</a>
+                <a href="/">Properties</a>
+                <a href="/">Agents</a>
+                <a href="/">Blog</a>
+                <a href="/">Features</a>
+                <a href="/">Home</a>
               </div>
             </nav>
             <div className="header-info-flex">
@@ -64,7 +63,5 @@ class Header extends Component {
     );
   }
 }
-
-Header.propTypes = {};
 
 export default Header;

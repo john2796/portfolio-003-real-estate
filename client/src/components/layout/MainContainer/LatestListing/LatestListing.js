@@ -1,6 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
-import { Route, NavLink } from "react-router-dom";
-const ListinCard = lazy(() => import("./ListingCard"));
+// import { Route, NavLink } from "react-router-dom";
+const ListingCard = lazy(() => import("./ListingCard"));
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
 const cardData = [
   {
@@ -17,6 +17,23 @@ const cardData = [
       {
         src:
           "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
+  },
+  {
+    id: 12,
+    headline: "second Card Test headline",
+    tab: "Apartments",
+    img: "image goes here",
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
       },
       {
         src:
@@ -61,7 +78,6 @@ class LatestListing extends Component {
       tabs: tabData,
       cardData,
       selected: "Apartments",
-      activeIndex: 0,
       tooltipOpen: false
     };
   }
@@ -74,29 +90,9 @@ class LatestListing extends Component {
       return cardData.filter(data => data.tab === this.state.selected);
     }
   };
-
   selectedTab = tab => {
     this.setState({ selected: tab });
   };
-
-  next = id => {
-    const item = cardData.find(item => item.id === id);
-    const nextIndex =
-      this.state.activeIndex === item.images.length - 1
-        ? 0
-        : this.state.activeIndex + 1;
-    this.setState({ activeIndex: nextIndex });
-  };
-
-  previous = id => {
-    const item = cardData.find(item => item.id === id);
-    const nextIndex =
-      this.state.activeIndex === 0
-        ? item.images.length - 1
-        : this.state.activeIndex - 1;
-    this.setState({ activeIndex: nextIndex });
-  };
-
   toggle = () => {
     this.setState({
       tooltipOpen: !this.state.tooltipOpen
@@ -104,7 +100,7 @@ class LatestListing extends Component {
   };
 
   render() {
-    const { tabs, selected, activeIndex } = this.state;
+    const { tabs, selected } = this.state;
     return (
       <React.Fragment>
         <svg
@@ -137,25 +133,11 @@ class LatestListing extends Component {
               <div key={item.id} className="listing-card ">
                 {item.tab}
                 <Suspense fallback={<div>Loading...</div>}>
-                  <ListinCard
+                  <ListingCard
                     id={item.id}
                     images={item.images}
                     tooltipOpen={this.state.tooltipOpen}
                     toggle={this.toggle}
-                    previous={this.previous}
-                    next={this.next}
-                    activeIndex={activeIndex}
-                    selected={selected}
-                    selectedTab={this.selectedTab}
-                  />
-                  <ListinCard
-                    id={item.id}
-                    images={item.images}
-                    tooltipOpen={this.state.tooltipOpen}
-                    toggle={this.toggle}
-                    previous={this.previous}
-                    next={this.next}
-                    activeIndex={activeIndex}
                     selected={selected}
                     selectedTab={this.selectedTab}
                   />

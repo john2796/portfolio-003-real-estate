@@ -219,23 +219,23 @@
   display: block;
   overflow: hidden;
 }
-.carousel-controls {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #ffff;
-  max-width: 500px;
-  margin: 0 auto;
-  min-width: 522px;
-  top: 139px;
-  right: 0;
-  position: absolute;
-  .fas {
-    color: $white;
-    font-size: 3rem;
-    padding: 0 30px;
-    background: transparent;
-    cursor: pointer;
-  }
-}
+// .carousel-controls {
+//   height: 100%;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   color: #ffff;
+//   max-width: 500px;
+//   margin: 0 auto;
+//   min-width: 522px;
+//   top: 139px;
+//   right: 0;
+//   position: absolute;
+//   .fas {
+//     color: $white;
+//     font-size: 3rem;
+//     padding: 0 30px;
+//     background: transparent;
+//     cursor: pointer;
+//   }
+// }
