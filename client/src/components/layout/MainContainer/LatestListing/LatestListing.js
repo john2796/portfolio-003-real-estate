@@ -42,6 +42,74 @@ const cardData = [
     ]
   },
   {
+    id: 32,
+    headline: "second Card Test headline",
+    tab: "Apartments",
+    img: "image goes here",
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
+  },
+  {
+    id: 29,
+    headline: "second Card Test headline",
+    tab: "Apartments",
+    img: "image goes here",
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
+  },
+  {
+    id: 27,
+    headline: "second Card Test headline",
+    tab: "Apartments",
+    img: "image goes here",
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
+  },
+  {
+    id: 124,
+    headline: "second Card Test headline",
+    tab: "Apartments",
+    img: "image goes here",
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
+  },
+  {
     id: 2,
     headline: "Testing headline",
     tab: "Houses",
@@ -128,23 +196,24 @@ class LatestListing extends Component {
               </h5>
             ))}
           </nav>
-          {this.filterData().map(item => {
-            return (
-              <div key={item.id} className="listing-card ">
-                {item.tab}
-                <Suspense fallback={<div>Loading...</div>}>
-                  <ListingCard
-                    id={item.id}
-                    images={item.images}
-                    tooltipOpen={this.state.tooltipOpen}
-                    toggle={this.toggle}
-                    selected={selected}
-                    selectedTab={this.selectedTab}
-                  />
-                </Suspense>
-              </div>
-            );
-          })}
+          <div className="listing-flexparent">
+            {this.filterData().map(item => {
+              return (
+                <div key={item.id} className="listing-card">
+                  <Suspense fallback={<div>Loading...</div>}>
+                    <ListingCard
+                      id={item.id}
+                      images={item.images}
+                      tooltipOpen={this.state.tooltipOpen}
+                      toggle={this.toggle}
+                      selected={selected}
+                      selectedTab={this.selectedTab}
+                    />
+                  </Suspense>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </React.Fragment>
     );

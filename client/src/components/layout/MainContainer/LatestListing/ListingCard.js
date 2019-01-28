@@ -38,8 +38,7 @@ class ListingCard extends Component {
   };
 
   render() {
-    const { images, tooltipOpen, toggle, hovering } = this.props;
-
+    const { images, tooltipOpen, toggle } = this.props;
     if (!images) {
       return <h1>Image is not available right now </h1>;
     }

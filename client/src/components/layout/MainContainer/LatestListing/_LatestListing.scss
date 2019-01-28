@@ -73,8 +73,20 @@
 }
 
 .card {
-  max-width: 525px;
-  margin-bottom: 20px;
+  max-width: 370px;
+  margin-bottom: 25px;
+  @include xl {
+    max-width: 470px;
+  }
+  @include lg {
+    max-width: 400px;
+  }
+  @include md {
+    max-width: 500px;
+  }
+  @include sm {
+    max-width: 570px;
+  }
 }
 .card-title {
   font-family: "Poppins";
@@ -172,7 +184,7 @@
   text-align: right;
   color: $white;
   font-size: 12px;
-  float: right;
+
   color: $white;
   position: relative;
   right: 20px;
@@ -186,6 +198,10 @@
 .carousel-parent {
   transition: all 0.4s linear;
   background-position: center;
+  background-size: cover;
+  object-fit: cover;
+  max-height: 250px;
+
   &:hover {
     transform: scale(1.1);
     filter: brightness(80%);
@@ -201,7 +217,7 @@
   bottom: 0;
   font-size: 2rem;
   right: 35px;
-  top: 270px;
+  top: 200px;
   width: auto;
   height: auto;
   padding-top: 0;
@@ -219,23 +235,29 @@
   display: block;
   overflow: hidden;
 }
-// .carousel-controls {
-//   height: 100%;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   color: #ffff;
-//   max-width: 500px;
-//   margin: 0 auto;
-//   min-width: 522px;
-//   top: 139px;
-//   right: 0;
-//   position: absolute;
-//   .fas {
-//     color: $white;
-//     font-size: 3rem;
-//     padding: 0 30px;
-//     background: transparent;
-//     cursor: pointer;
-//   }
-// }
+.carousel-controls {
+  position: absolute;
+  top: 105px;
+  right: 25px;
+
+  .fas {
+    background: transparent;
+    cursor: pointer;
+    font-size: 3rem;
+    color: white;
+  }
+  .fa-chevron-left {
+    right: 294px;
+    position: absolute;
+  }
+}
+
+.listing-flexparent {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  border: 1px solid red;
+  margin: 0 auto;
+}
