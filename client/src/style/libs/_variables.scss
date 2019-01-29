@@ -71,6 +71,14 @@ $screen-xl-max: 1200px; // Large tablets and desktops
   width: 95%;
   margin: 0 auto;
 }
+@mixin mainhover {
+  color: $white;
+  background: $yellow;
+  &:hover {
+    color: $white;
+    background: $darkblue;
+  }
+}
 /*
 Use like so:
 A class that will respond differently in different resolutions 

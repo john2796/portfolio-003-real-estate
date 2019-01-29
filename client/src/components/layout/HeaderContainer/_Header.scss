@@ -60,29 +60,33 @@
 .tablet-nav {
   display: none;
   @include lg {
+    display: block;
     background: $headertabletnav;
     .twrapper {
       margin-top: -10px;
-      display: block;
       padding: 10px 0;
       display: flex;
       align-content: center;
-      justify-content: space-between;
+      // justify-content: space-between;
+      // width: 62%;
+    }
+    .logo-wrp {
+      width: 35%;
+      margin: 0 auto;
+      @include sm {
+        width: 60%;
+      }
     }
 
     .fa-bars {
+      width: 20%;
       color: $white;
       font-size: 1.8rem;
-      margin-right: 300px;
       margin-left: 15px;
       margin-top: 19px;
     }
-  } // Tablets and small desktops 992px;
-
-  @include md {
   }
 }
-
 .header-info-flex {
   display: flex;
   justify-content: space-between;
@@ -93,7 +97,6 @@
     border: 1px solid green;
   }
 }
-
 .header-title {
   z-index: 5;
   white-space: nowrap;
@@ -108,10 +111,16 @@
   margin-top: 200px;
   text-transform: uppercase;
   @include lg {
-    font-size: 5rem;
+    font-size: 5.5rem;
   }
   @include md {
+    font-size: 4.4rem;
+  }
+  @include sm {
     font-size: 3rem;
+  }
+  @include xs {
+    font-size: 3.2rem;
   }
 }
 .header-ptag {
@@ -142,11 +151,22 @@
   }
   @include md {
     font-size: 3rem;
-    color: $white;
     line-height: 32px;
     font-size: 1.6rem;
-    max-width: 250px;
+    max-width: 550px;
     min-width: 250px;
+  }
+  @include sm {
+    margin-top: -10px;
+    color: rgba(255, 255, 255, 0.685);
+    font-size: 1.4rem;
+    line-height: 25px;
+  }
+  @include xs {
+    margin-top: -13px;
+    color: rgba(255, 255, 255, 0.885);
+    font-size: 1.5rem;
+    line-height: 30px;
   }
 }
 .header-yellow-btn {
@@ -173,8 +193,21 @@
     width: 150px;
     padding: 13px 22px 10px;
     font-size: 1.2rem;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     margin-top: 35px;
+  }
+  @include md {
+    margin-top: 68px;
+    margin-bottom: 191px;
+  }
+  @include sm {
+    margin-top: 38px;
+    font-size: 1.1rem;
+  }
+  @include xs {
+    width: 168px;
+    padding: 12px 26px 12px;
+    margin-top: 71px;
   }
   &:hover {
     color: rgb(17, 17, 17);
@@ -184,12 +217,14 @@
 .fa-chevron-right {
   font-size: 14px;
   margin-left: 10px;
+  @include sm {
+    font-size: 9px;
+  }
   &:hover {
     color: rgb(17, 17, 17);
     background-color: rgb(255, 255, 255);
   }
 }
-
 .header-carousel-indicators {
   margin-top: -200px;
   @include lg {

@@ -36,12 +36,12 @@ class ListingCard extends Component {
       return { activeIndex: (state.activeIndex = nextIndex) };
     });
   };
-
   render() {
-    const { images, tooltipOpen, toggle } = this.props;
+    const { item, images, tooltipOpen, toggle } = this.props;
     if (!images) {
-      return <h1>Image is not available right now </h1>;
+      return <span>listings currently not available</span>;
     }
+
     const slides = images.map((item, index) => {
       let computedClass =
         index === this.state.activeIndex ? "slide active" : "slide";
