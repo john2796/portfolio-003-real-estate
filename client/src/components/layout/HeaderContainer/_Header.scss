@@ -242,3 +242,55 @@
     background: #fff;
   }
 }
+
+// single list item style
+.listing-style {
+  .listing-textwidge {
+    font-size: 13px;
+    line-height: 22px;
+    font-family: "Poppins";
+    color: $white;
+    text-align: right;
+    padding: 10px 0;
+    background: $headertabletnav;
+    padding-right: 40px;
+    @include lg {
+      width: 100%;
+      padding: 25px 0;
+      background: $headertab;
+      text-align: center;
+    }
+    i {
+      margin: 0 9px;
+      font-size: 15px;
+      margin-right: 3px;
+    }
+    .fa-map-marker {
+      margin-left: 15px;
+    }
+  }
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: -10px 0 10px 0;
+    @include wrapper;
+    @include lg {
+      display: none;
+    } // Tablets and small desktops 992px;
+    a {
+      color: $headertab;
+      font-weight: 500;
+      font-size: 1.4rem;
+      font-family: "Poppins";
+      text-transform: uppercase;
+      text-decoration: none !important;
+      margin-left: 14px;
+      padding-bottom: 6px;
+      &:hover {
+        color: rgba(255, 204, 0, 0.9);
+        border-bottom: 3px solid rgba(255, 204, 0, 0.9);
+      }
+    }
+  }
+}

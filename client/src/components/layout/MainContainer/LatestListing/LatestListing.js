@@ -1,5 +1,5 @@
 import React, { Component, lazy, Suspense } from "react";
-// import { Route, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 const ListingCard = lazy(() => import("./ListingCard"));
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
@@ -16,7 +16,7 @@ class LatestListing extends Component {
 
   filterData = () => {
     const cardData = this.props.cardData;
-    if (this.state.selected === "Apartments") {
+    if (this.state.selected === "needtochangelaterbugissue") {
       return cardData;
     } else {
       return cardData.filter(data => data.tab === this.state.selected);
@@ -33,8 +33,6 @@ class LatestListing extends Component {
 
   render() {
     const { tabs, selected } = this.state;
-    //console.log("this.filterData()", this.filterData());
-
     return (
       <React.Fragment>
         <svg
@@ -56,7 +54,7 @@ class LatestListing extends Component {
               ? "items is not available"
               : tabs.map((tab, i) => (
                   <h5
-                    key={i}
+                    key={tab}
                     className={tab === selected ? "tab active-tab" : "tab"}
                     onClick={() => this.selectedTab(tab)}
                     style={
@@ -74,14 +72,16 @@ class LatestListing extends Component {
               {this.filterData().map(item => {
                 return (
                   <div key={item.id} className="listing-card">
-                    <ListingCard
-                      id={item.id}
-                      images={item.images}
-                      tooltipOpen={this.state.tooltipOpen}
-                      toggle={this.toggle}
-                      selected={selected}
-                      selectedTab={this.selectedTab}
-                    />
+                    <Link to={`/listing/${item.id}`}>
+                      <ListingCard
+                        id={item.id}
+                        images={item.images}
+                        tooltipOpen={this.state.tooltipOpen}
+                        toggle={this.toggle}
+                        selected={selected}
+                        selectedTab={this.selectedTab}
+                      />
+                    </Link>
                   </div>
                 );
               })}

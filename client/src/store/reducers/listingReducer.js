@@ -1,3 +1,4 @@
+import { GET_LIST_ID } from "../actions/listingAction";
 const cardData = [
   {
     id: 1,
@@ -157,28 +158,60 @@ const cardData = [
     ]
   },
   {
-    id: 4,
+    id: 12222222222,
     headline: "Testing headline",
     tab: "Retail",
     img: "image goes here",
-    author: "author field testing here"
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
   },
   {
-    id: 5,
+    id: 1111111,
     headline: "Testing headline",
     tab: "Land",
     img: "image goes here",
-    author: "author field testing here"
+    author: "author field testing here",
+    images: [
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+      },
+      {
+        src:
+          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+      }
+    ]
   }
 ];
 
 const initialState = {
-  cardData
+  cardData,
+  listId: null
 };
 export default function listingReducer(state = initialState, action) {
   switch (action.type) {
-    // case 'ACTION_TYPE':
-    //   return code
+    case GET_LIST_ID:
+      return {
+        ...state,
+        listId: action.id
+      };
     default:
       return state;
   }
