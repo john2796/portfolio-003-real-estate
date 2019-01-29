@@ -3,7 +3,7 @@ import React from "react";
 const Wpresidence = () => {
   return (
     <React.Fragment>
-      <div className="container">
+      <div className="wpresidence-container">
         <h2 className="wp-title">This is wpresidence</h2>
         <p className="wp-subtitle">the most advanced estate wordpress theme</p>
         <div className="wp-options">

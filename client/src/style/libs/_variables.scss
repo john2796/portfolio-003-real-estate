@@ -21,6 +21,8 @@ $darkblue: #2b2c2e;
 $footergray: #222222;
 $footerptag: #767676;
 $footersearch: #8593a9;
+$headertab: #2a2a2a;
+$headertabletnav: #24282d;
 
 // media queries
 // Screen size variables desktop approach
@@ -57,6 +59,12 @@ $screen-xl-max: 1200px; // Large tablets and desktops
   }
 } // Extra large devices
 
+@mixin wrapper {
+  max-width: 1200px;
+  border: 1px solid red;
+  width: 95%;
+  margin: 0 auto;
+}
 /*
 Use like so:
 A class that will respond differently in different resolutions 
