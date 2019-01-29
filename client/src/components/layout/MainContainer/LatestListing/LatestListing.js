@@ -1,5 +1,4 @@
 import React, { Component, lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 const ListingCard = lazy(() => import("./ListingCard"));
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
@@ -72,16 +71,14 @@ class LatestListing extends Component {
               {this.filterData().map(item => {
                 return (
                   <div key={item.id} className="listing-card">
-                    <Link to={`/listing/${item.id}`}>
-                      <ListingCard
-                        id={item.id}
-                        images={item.images}
-                        tooltipOpen={this.state.tooltipOpen}
-                        toggle={this.toggle}
-                        selected={selected}
-                        selectedTab={this.selectedTab}
-                      />
-                    </Link>
+                    <ListingCard
+                      id={item.id}
+                      images={item.images}
+                      tooltipOpen={this.state.tooltipOpen}
+                      toggle={this.toggle}
+                      selected={selected}
+                      selectedTab={this.selectedTab}
+                    />
                   </div>
                 );
               })}

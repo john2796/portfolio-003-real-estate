@@ -9,6 +9,7 @@ import {
   Tooltip
 } from "reactstrap";
 import { getSingleListId } from "../../../../store/actions/listingAction";
+import { Link } from "react-router-dom";
 
 class ListingCard extends Component {
   constructor(props) {
@@ -38,11 +39,10 @@ class ListingCard extends Component {
     });
   };
   render() {
-    const { item, images, tooltipOpen, toggle } = this.props;
+    const { images, tooltipOpen, toggle, id } = this.props;
     if (!images) {
       return <span>listings currently not available</span>;
     }
-
     const slides = images.map((item, index) => {
       let computedClass =
         index === this.state.activeIndex ? "slide active" : "slide";
@@ -56,6 +56,7 @@ class ListingCard extends Component {
         </div>
       );
     });
+
     return (
       <>
         <Card>
@@ -80,52 +81,54 @@ class ListingCard extends Component {
             </div>
             {slides}
           </div>
-          <CardBody>
-            <CardTitle>Luxury Villa In Rego Park</CardTitle>
-            <CardSubtitle> $ 2,100 / month</CardSubtitle>
-            <CardText>
-              Just steps away from QM2 express bus to Manhattan and local buses;
-              only minutes from the LIRR. Walki [more]
-            </CardText>
+          <Link
+            to={`/listing/${id}`}
+            onClick={() => this.props.getSingleListId(id)}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <CardBody>
+              <CardTitle>Luxury Villa In Rego Park</CardTitle>
+              <CardSubtitle> $ 2,100 / month</CardSubtitle>
+              <CardText>
+                Just steps away from QM2 express bus to Manhattan and local
+                buses; only minutes from the LIRR. Walki [more]
+              </CardText>
 
-            <div className="property_listing_details">
-              {" "}
-              <span className="infobath_unit_type2">
-                <i className="fas fa-tint" />4
-              </span>{" "}
-              <span className="infogarage_unit_type2">
-                <i className="fas fa-car" />
-                10
-              </span>{" "}
-              <span className="infosize_unit_type2">
-                <i className="far fa-map" />5 000,00 ft<sup>2</sup>
-              </span>
-            </div>
-
-            <div className="property-location">
-              <div className="property-name">
-                <img
-                  src="https://losangeles.wpresidence.net/wp-content/uploads/2014/05/agent2-1-120x120.jpg"
-                  alt=""
-                />
-                <h5>Michael Suttherland</h5>
+              <div className="property_listing_details">
+                {" "}
+                <span className="infobath_unit_type2">
+                  <i className="fas fa-tint" />4
+                </span>{" "}
+                <span className="infogarage_unit_type2">
+                  <i className="fas fa-car" />
+                  10
+                </span>{" "}
+                <span className="infosize_unit_type2">
+                  <i className="far fa-map" />5 000,00 ft<sup>2</sup>
+                </span>
               </div>
-              <span className="property-share">
-                <i className="fas fa-share-alt" />
-                <i className="fas fa-plus" />
-              </span>
-            </div>
-          </CardBody>
+
+              <div className="property-location">
+                <div className="property-name">
+                  <img
+                    src="https://losangeles.wpresidence.net/wp-content/uploads/2014/05/agent2-1-120x120.jpg"
+                    alt=""
+                  />
+                  <h5>Michael Suttherland</h5>
+                </div>
+                <span className="property-share">
+                  <i className="fas fa-share-alt" />
+                  <i className="fas fa-plus" />
+                </span>
+              </div>
+            </CardBody>
+          </Link>
         </Card>
       </>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  getSingleListId: state.listing
-});
 export default connect(
-  mapStateToProps,
+  null,
   { getSingleListId }
 )(ListingCard);

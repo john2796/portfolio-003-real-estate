@@ -3,19 +3,18 @@ import TopNavbar from "./topnavbar/TopNavbar";
 import Navbar from "./navbar/Navbar";
 import HeaderInfo from "./headerinfo/HeaderInfo";
 import { Route } from "react-router-dom";
+import { connect } from "react-redux";
+
 class Header extends Component {
-  componentDidMount() {
-    console.log("this.props", this.props);
-  }
   render() {
     let conditionalStyle =
-      this.props.location.pathname === "/listing/1"
+      this.props.location.pathname === `/listing/${this.props.listId}`
         ? "listing-style"
         : "bg-banner-header";
     let topnavbar =
-      this.props.location.pathname === "/listing/1"
-        ? "listing-textwidge"
-        : "textwidge";
+      this.props.location.pathname === `/listing/${this.props.listId}`
+        ? "listing-textwidget"
+        : "textwidget";
     return (
       <div>
         <div className={conditionalStyle}>
@@ -29,4 +28,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  listId: state.listing.listId
+});
+
+export default connect(mapStateToProps)(Header);

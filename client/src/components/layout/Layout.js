@@ -6,7 +6,7 @@ import Main from "./MainContainer/Main";
 import Footer from "./FooterContainer/Footer";
 import SingleListing from "./MainContainer/singleListing/SingleListing";
 
-const Layout = () => {
+const Layout = props => {
   return (
     <React.Fragment>
       <Route path="/" component={Header} />
