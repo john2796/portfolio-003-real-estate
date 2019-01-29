@@ -16,8 +16,10 @@
   color: #fff;
   text-align: right;
   padding: 10px 0;
+  @include wrapper;
   @include lg {
-    padding: 19px 0;
+    width: 100%;
+    padding: 25px 0;
     background: $headertab;
     text-align: center;
   }
@@ -36,6 +38,7 @@
   align-items: center;
   justify-content: space-between;
   margin: -10px 0 10px 0;
+  @include wrapper;
   @include lg {
     display: none;
   } // Tablets and small desktops 992px;
@@ -57,12 +60,16 @@
 .tablet-nav {
   display: none;
   @include lg {
-    margin-top: -10px;
     background: $headertabletnav;
-    display: block;
-    padding: 10px 0;
-    display: flex;
-    align-content: center;
+    .twrapper {
+      margin-top: -10px;
+      display: block;
+      padding: 10px 0;
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+    }
+
     .fa-bars {
       color: $white;
       font-size: 1.8rem;
@@ -71,6 +78,9 @@
       margin-top: 19px;
     }
   } // Tablets and small desktops 992px;
+
+  @include md {
+  }
 }
 
 .header-info-flex {
@@ -78,6 +88,10 @@
   justify-content: space-between;
   align-items: center;
   @include wrapper;
+  @include md {
+    // padding: 150px 0;
+    border: 1px solid green;
+  }
 }
 
 .header-title {
@@ -95,6 +109,9 @@
   text-transform: uppercase;
   @include lg {
     font-size: 5rem;
+  }
+  @include md {
+    font-size: 3rem;
   }
 }
 .header-ptag {
@@ -123,6 +140,14 @@
     max-width: 550px;
     min-width: 550px;
   }
+  @include md {
+    font-size: 3rem;
+    color: $white;
+    line-height: 32px;
+    font-size: 1.6rem;
+    max-width: 250px;
+    min-width: 250px;
+  }
 }
 .header-yellow-btn {
   z-index: 7;
@@ -146,9 +171,8 @@
   margin-bottom: 200px;
   @include lg {
     width: 150px;
-    padding: 12px 15px 10px;
+    padding: 13px 22px 10px;
     font-size: 1.2rem;
-    margin-left: 15px;
     margin-bottom: 10px;
     margin-top: 35px;
   }
@@ -167,7 +191,7 @@
 }
 
 .header-carousel-indicators {
-  margin-top: 200px;
+  margin-top: -200px;
   @include lg {
     margin-top: 50px;
   }

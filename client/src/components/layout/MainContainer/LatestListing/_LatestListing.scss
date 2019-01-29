@@ -91,13 +91,16 @@
     max-width: 470px;
   }
   @include lg {
-    max-width: 400px;
+    max-width: 390px;
   }
   @include md {
-    max-width: 500px;
+    max-width: 340px;
+  }
+  @include xm {
+    max-width: 480px;
   }
   @include sm {
-    max-width: 380px;
+    max-width: 90%;
   }
 }
 .card-title {
@@ -259,13 +262,16 @@
       right: 394px;
     } // Large tablets and desktops 1200px;
     @include lg {
-      right: 344px;
+      right: 319px;
     } // Tablets and small desktops 992px;
     @include md {
-      right: 444px;
+      right: 284px;
     } // Small tablets (portrait view) 768px;
+    @include xm {
+      right: 415px;
+    }
     @include sm {
-      right: 324px;
+      right: 380px;
     } // Small tablets and large smartphones (landscape view) 576px;
     @include xs {
       right: 324px;

@@ -19,6 +19,9 @@
   font-weight: normal;
   color: #848484;
   text-align: center;
+  @include md {
+    margin-bottom: -63px;
+  }
 }
 
 .wp-options {

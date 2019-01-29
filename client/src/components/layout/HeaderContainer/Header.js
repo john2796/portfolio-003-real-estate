@@ -49,11 +49,14 @@ class Header extends Component {
 
           {/* tablet nav */}
           <nav className="tablet-nav ">
-            <i className=" fa fa-bars" />
-            <img
-              src="https://losangeles.wpresidence.net/wp-content/uploads/2016/08/logo_la_transparent.png"
-              alt="tablet-logo"
-            />
+            <div className="twrapper">
+              <i className=" fa fa-bars" />
+              <img
+                className="tablet-logo"
+                src="https://losangeles.wpresidence.net/wp-content/uploads/2016/08/logo_la_transparent.png"
+                alt="tablet-logo"
+              />
+            </div>
           </nav>
           <div className="header-info-flex">
             <div className="header-info-item">
@@ -64,6 +67,10 @@ class Header extends Component {
                 listings, reaching qualified buyeres regardless of where they
                 are based.
               </p>
+              <div className="header-yellow-btn">
+                VIEW MORE
+                <i className="fas fa-chevron-right" />
+              </div>
             </div>
 
             <div className="header-carousel-indicators">
@@ -71,11 +78,6 @@ class Header extends Component {
               <div className="tp-bullet" />
               <div className="tp-bullet" />
             </div>
-          </div>
-
-          <div className="header-yellow-btn">
-            VIEW MORE
-            <i className="fas fa-chevron-right" />
           </div>
         </div>
       </div>
