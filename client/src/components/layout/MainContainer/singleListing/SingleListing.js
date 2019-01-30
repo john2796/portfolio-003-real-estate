@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import SCarousel from "./SCarousel";
+import React, { Component, lazy, Suspense } from "react";
+const Scarousel = lazy(() => import("./SCarousel"));
 
 const cdata = [
   {
@@ -85,8 +85,48 @@ class SingleListing extends Component {
   render() {
     return (
       <React.Fragment>
-        <SCarousel cdata={cdata} />
-        <h1>main single page </h1>
+        <Suspense fallback={<h1>loading</h1>}>
+          <Scarousel cdata={cdata} />
+        </Suspense>
+        <span>need to add pathname here later </span>
+
+        {cdata.map((i, idx) => {
+          console.log(i);
+          return (
+            //parent wrapper
+            <div key={idx} className="twosection-parent">
+              {/* left Section */}
+              <div className="tsc-first-item">
+                <div className="title-section">
+                  <div className="tandp">
+                    <h1>{i.title}</h1>
+                    <p>{i.tprice}</p>
+                  </div>
+                  <div className="title-lighthr">
+                    <div className="retail">
+                      <p>{i.tretail}</p>
+                      <p>add to favorites</p>
+                    </div>
+                    <div className="taddress">
+                      <p>{i.taddress}</p>
+                      <p>
+                        <span>icons</span>
+                        <span>icons</span>
+                        <span>icons</span>
+                        <span>icons</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Section */}
+              <div className="tsc-second-item">
+                <h3>Michael Suttherland</h3>
+              </div>
+            </div>
+          );
+        })}
       </React.Fragment>
     );
   }

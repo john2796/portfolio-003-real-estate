@@ -32,7 +32,7 @@ class Footer extends Component {
                 expertise, customer service, and attention to detail to the
                 marketing and sales of luxury real estate, and rental
                 properties.{" "}
-                <a href="#">
+                <a href="/">
                   READ MORE
                   <i className="fas fa-arrow-right" />
                 </a>{" "}

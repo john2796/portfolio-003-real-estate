@@ -1,4 +1,5 @@
 .singlelist-parent {
+  background: $spbg;
   transition: all 0.4s linear;
   background-position: center;
   background-size: cover;
@@ -23,5 +24,23 @@
     cursor: pointer;
     color: white;
     font-size: 4rem;
+  }
+}
+
+.twosection-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include wrapper;
+
+  .tsc-first-item {
+    max-width: 70%;
+    min-width: 70%;
+    border: 1px solid red;
+  }
+  .tsc-second-item {
+    max-width: 30%;
+    min-width: 30%;
+    border: 1px solid green;
   }
 }
