@@ -86,6 +86,14 @@ $screen-xl-max: 1200px; // Large tablets and desktops
   justify-content: space-between;
   // align-items: baseline;
 }
+
+@mixin favstyle {
+  background-color: $footersearch;
+  color: $white;
+  padding: 0 5px;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
 /*
 Use like so:
 A class that will respond differently in different resolutions 

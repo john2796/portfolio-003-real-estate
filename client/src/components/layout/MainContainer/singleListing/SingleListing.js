@@ -88,7 +88,7 @@ class SingleListing extends Component {
         <Suspense fallback={<h1>loading</h1>}>
           <Scarousel cdata={cdata} />
         </Suspense>
-        <span>need to add pathname here later </span>
+        <span className="pathname">need to add pathname here later </span>
 
         <div className="singlemain">
           {cdata.map((i, idx) => {
@@ -98,7 +98,7 @@ class SingleListing extends Component {
               <div key={idx} className="twosection-parent">
                 {/* left Section */}
                 <div className="tsc-first-item">
-                  <div className="title-section">
+                  <section className="title-section">
                     <div className="tandp">
                       <h1>{i.title}</h1>
                       <p>{i.tprice}</p>
@@ -130,12 +130,25 @@ class SingleListing extends Component {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </section>
+                  <section className="description white-box">
+                    <h2>{i.desctitle}</h2>
+                    <p>{i.desc}</p>
+                  </section>
+                  {/* description section */}
+                  {/* Address section */}
+                  {/* details section */}
+                  {/* Features section */}
+                  {/* Map section */}
+                  {/* Floor Plans section */}
+                  {/* Page View Statistics section */}
+                  {/* Property Reviews section */}
                 </div>
 
                 {/* Right Section */}
                 <div className="tsc-second-item">
                   <h3>Michael Suttherland</h3>
+                  <p>will work on here after i finished left section</p>
                 </div>
               </div>
             );

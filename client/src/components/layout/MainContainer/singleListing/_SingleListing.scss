@@ -29,12 +29,19 @@
   background: $spbg;
 }
 
+.pathname {
+  background: $spbg;
+  width: 100%;
+  display: flex;
+}
+
 .twosection-parent {
   @include flex;
   @include wrapper;
   .tsc-first-item {
     max-width: 70%;
     min-width: 70%;
+    margin-right: 3%;
     border: 1px solid red;
     .tandp {
       @include flex;
@@ -53,7 +60,7 @@
       border-top: 1px solid #f0f0f0;
       border-bottom: 1px solid #f0f0f0;
       padding: 10px 0;
-      margin-bottom: 100px;
+      margin-bottom: 70px;
     }
 
     .retail {
@@ -64,9 +71,7 @@
         margin-bottom: 3px;
       }
       .add-fav {
-        background-color: $footersearch;
-        color: $white;
-        padding: 0 5px;
+        @include favstyle;
       }
     }
     .taddress {
@@ -77,17 +82,25 @@
       }
       span {
         margin-left: 1.2rem;
-        color: $lightgray;
+        color: $footersearch;
         &:hover {
           color: $yellow;
         }
       }
     }
   } //left section
-
   .tsc-second-item {
     max-width: 30%;
     min-width: 30%;
     border: 1px solid green;
   } // right section
+
+  //white box style global
+  .white-box {
+    box-sizing: border-box;
+    // border: 1px solid red;
+    border-radius: 2px;
+    background: $white;
+    padding: 30px;
+  }
 }
