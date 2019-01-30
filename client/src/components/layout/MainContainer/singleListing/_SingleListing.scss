@@ -1,0 +1,27 @@
+.singlelist-parent {
+  transition: all 0.4s linear;
+  background-position: center;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.slide {
+  display: none;
+}
+.active {
+  display: block;
+}
+
+.sp-controls {
+  border: 1px solid red;
+  padding: 250px 3%; // height for images comming from here
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .fas {
+    background: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 4rem;
+  }
+}

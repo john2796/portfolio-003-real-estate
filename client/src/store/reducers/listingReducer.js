@@ -203,7 +203,7 @@ const cardData = [
 
 const initialState = {
   cardData,
-  listId: null
+  listId: 1
 };
 export default function listingReducer(state = initialState, action) {
   switch (action.type) {
