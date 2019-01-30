@@ -90,43 +90,57 @@ class SingleListing extends Component {
         </Suspense>
         <span>need to add pathname here later </span>
 
-        {cdata.map((i, idx) => {
-          console.log(i);
-          return (
-            //parent wrapper
-            <div key={idx} className="twosection-parent">
-              {/* left Section */}
-              <div className="tsc-first-item">
-                <div className="title-section">
-                  <div className="tandp">
-                    <h1>{i.title}</h1>
-                    <p>{i.tprice}</p>
-                  </div>
-                  <div className="title-lighthr">
-                    <div className="retail">
-                      <p>{i.tretail}</p>
-                      <p>add to favorites</p>
+        <div className="singlemain">
+          {cdata.map((i, idx) => {
+            console.log(i);
+            return (
+              //parent wrapper
+              <div key={idx} className="twosection-parent">
+                {/* left Section */}
+                <div className="tsc-first-item">
+                  <div className="title-section">
+                    <div className="tandp">
+                      <h1>{i.title}</h1>
+                      <p>{i.tprice}</p>
                     </div>
-                    <div className="taddress">
-                      <p>{i.taddress}</p>
-                      <p>
-                        <span>icons</span>
-                        <span>icons</span>
-                        <span>icons</span>
-                        <span>icons</span>
-                      </p>
+                    <div className="title-lighthr">
+                      <div className="retail">
+                        <p>{i.tretail}</p>
+                        <p className="add-fav">add to favorites</p>
+                      </div>
+                      <div className="taddress">
+                        <p>{i.taddress}</p>
+                        <p>
+                          <span>
+                            <i className="fas fa-eye-slash" />
+                            <span>2133</span>
+                          </span>
+                          <span>
+                            <i className="fab fa-facebook-f" />
+                          </span>
+                          <span>
+                            <i className="fab fa-twitter" />
+                          </span>
+                          <span>
+                            <i className="fab fa-google-plus-g" />
+                          </span>
+                          <span>
+                            <i className="fab fa-pinterest" />
+                          </span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Right Section */}
-              <div className="tsc-second-item">
-                <h3>Michael Suttherland</h3>
+                {/* Right Section */}
+                <div className="tsc-second-item">
+                  <h3>Michael Suttherland</h3>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </React.Fragment>
     );
   }

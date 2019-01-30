@@ -80,6 +80,12 @@ $screen-xl-max: 1200px; // Large tablets and desktops
     background: $darkblue;
   }
 }
+
+@mixin flex {
+  display: flex;
+  justify-content: space-between;
+  // align-items: baseline;
+}
 /*
 Use like so:
 A class that will respond differently in different resolutions 

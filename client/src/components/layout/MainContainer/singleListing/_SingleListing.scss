@@ -1,5 +1,4 @@
 .singlelist-parent {
-  background: $spbg;
   transition: all 0.4s linear;
   background-position: center;
   background-size: cover;
@@ -26,21 +25,69 @@
     font-size: 4rem;
   }
 }
+.singlemain {
+  background: $spbg;
+}
 
 .twosection-parent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include flex;
   @include wrapper;
-
   .tsc-first-item {
     max-width: 70%;
     min-width: 70%;
     border: 1px solid red;
-  }
+    .tandp {
+      @include flex;
+      h1 {
+        font-weight: 600;
+        font-size: 3rem;
+      }
+      p {
+        font-size: 2.6rem;
+        color: $yellow;
+        font-weight: 600;
+      }
+    }
+    // really light border top and bottom for title info
+    .title-lighthr {
+      border-top: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+      padding: 10px 0;
+      margin-bottom: 100px;
+    }
+
+    .retail {
+      @include flex;
+      p {
+        font-size: 1.5rem;
+        color: $darkgray;
+        margin-bottom: 3px;
+      }
+      .add-fav {
+        background-color: $footersearch;
+        color: $white;
+        padding: 0 5px;
+      }
+    }
+    .taddress {
+      @include flex;
+      p {
+        font-size: 1.5rem;
+        color: $darkgray;
+      }
+      span {
+        margin-left: 1.2rem;
+        color: $lightgray;
+        &:hover {
+          color: $yellow;
+        }
+      }
+    }
+  } //left section
+
   .tsc-second-item {
     max-width: 30%;
     min-width: 30%;
     border: 1px solid green;
-  }
+  } // right section
 }
