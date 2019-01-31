@@ -82,6 +82,19 @@ const cdata = [
 ];
 
 class SingleListing extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isOpen: false
+    };
+  }
+
+  toggle = () => {
+    this.setState((state, props) => {
+      return { isOpen: !state.isOpen };
+    });
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -98,6 +111,7 @@ class SingleListing extends Component {
               <div key={idx} className="twosection-parent">
                 {/* left Section */}
                 <div className="tsc-first-item">
+                  {/* title section */}
                   <section className="title-section">
                     <div className="tandp">
                       <h1>{i.title}</h1>
@@ -131,13 +145,91 @@ class SingleListing extends Component {
                       </div>
                     </div>
                   </section>
-                  <section className="description white-box">
-                    <h2>{i.desctitle}</h2>
-                    <p>{i.desc}</p>
-                  </section>
                   {/* description section */}
+                  <section className="description sl-white-box">
+                    <h4 className="sl-title">{i.desctitle}</h4>
+                    <p className="sl-ptag">{i.desc}</p>
+                  </section>
                   {/* Address section */}
+                  <section className="address sl-white-box">
+                    <div className="sl-item" onClick={this.toggle}>
+                      <h4 className="sl-items-title">{i.address[0].title}</h4>
+                      <i className="fas fa-angle-down" />
+                    </div>
+                    <div
+                      className={this.state.isOpen ? "ls-toggle-active" : null}
+                    >
+                      <div className="ls-address-info">
+                        <p>
+                          <strong>Address</strong>: {i.address[0].address}
+                        </p>
+                        <p>
+                          <strong>City</strong>: {i.address[0].city}
+                        </p>
+                        <p>
+                          <strong>Area</strong>: {i.address[0].area}
+                        </p>
+                        <p>
+                          <strong>State/Country</strong>:{" "}
+                          {i.address[0].statecounty}
+                        </p>
+                        <p>
+                          <strong>Zip</strong>: {i.address[0].zip}
+                        </p>
+                        <p>
+                          <strong>Country</strong>: {i.address[0].country}
+                        </p>
+                      </div>
+                      <p className="add-fav add-fav-yellow">
+                        Open In Google Maps
+                      </p>
+                    </div>
+                  </section>
                   {/* details section */}
+                  <section className="address sl-white-box">
+                    <div className="sl-item" onClick={this.toggle}>
+                      <h4 className="sl-items-title">{i.details[0].title}</h4>
+                      <i className="fas fa-angle-down" />
+                    </div>
+                    <div
+                      className={this.state.isOpen ? "ls-toggle-active" : null}
+                    >
+                      <div className="ls-address-info">
+                        <p>
+                          <strong>Property Id</strong>: {i.details[0].propid}
+                        </p>
+                        <p>
+                          <strong>Price</strong>: {i.details[0].price}
+                        </p>
+                        <p>
+                          <strong>Property Size</strong>: {i.details[0].propsz}
+                        </p>
+                        <p>
+                          <strong>Property Lot Size</strong>:{" "}
+                          {i.details[0].proplts}
+                        </p>
+                        <p>
+                          <strong>Rooms</strong>: {i.details[0].rms}
+                        </p>
+                        <p>
+                          <strong>Bathroom</strong>: {i.details[0].btrm}
+                        </p>
+                        <p>
+                          <strong>Garages</strong>: {i.details[0].grgs}
+                        </p>
+                        <p>
+                          <strong>Deposit</strong>: {i.details[0].dep}
+                        </p>
+                        <p>
+                          <strong>Structure Type</strong>:{" "}
+                          {i.details[0].stctype}
+                        </p>
+                        <p>
+                          <strong>Floors No</strong>: {i.details[0].foornum}
+                        </p>
+                      </div>
+                    </div>
+                  </section>
                   {/* Features section */}
                   {/* Map section */}
                   {/* Floor Plans section */}

@@ -24,6 +24,9 @@ $footersearch: #8593a9;
 $headertab: #2a2a2a;
 $headertabletnav: #24282d;
 $spbg: #f7f7f7;
+$sl-ptag: #6d6d6d;
+$sl-title: #3a4659;
+$sl-items-title: #333e4f;
 
 // media queries
 // Screen size variables desktop approach
@@ -90,10 +93,11 @@ $screen-xl-max: 1200px; // Large tablets and desktops
 @mixin favstyle {
   background-color: $footersearch;
   color: $white;
-  padding: 0 5px;
+  padding: 1px 5px;
   font-size: 1.3rem;
-  font-weight: 400;
+  font-weight: 300;
 }
+
 /*
 Use like so:
 A class that will respond differently in different resolutions 

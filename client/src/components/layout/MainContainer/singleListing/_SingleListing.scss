@@ -46,8 +46,8 @@
     .tandp {
       @include flex;
       h1 {
-        font-weight: 600;
-        font-size: 3rem;
+        font-weight: 500;
+        font-size: 3.4rem;
       }
       p {
         font-size: 2.6rem;
@@ -60,9 +60,9 @@
       border-top: 1px solid #f0f0f0;
       border-bottom: 1px solid #f0f0f0;
       padding: 10px 0;
-      margin-bottom: 70px;
+      margin-bottom: 35px;
+      margin-top: 10px;
     }
-
     .retail {
       @include flex;
       p {
@@ -94,13 +94,78 @@
     min-width: 30%;
     border: 1px solid green;
   } // right section
-
-  //white box style global
-  .white-box {
-    box-sizing: border-box;
-    // border: 1px solid red;
-    border-radius: 2px;
-    background: $white;
-    padding: 30px;
+}
+.add-fav-yellow {
+  @include favstyle;
+  display: inline-block;
+  background: $yellow;
+  padding: 2px 5px;
+}
+//adress
+.ls-address-info {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0;
+  p {
+    strong {
+      color: $sl-items-title;
+    }
+    color: $sl-ptag;
+    font-size: 1.4rem;
+    width: 30%;
   }
+}
+
+//global styling for single page
+//had to break out of the nested too messy
+// this is left section of single listing page
+// need to add animation here later
+.ls-toggle-active {
+  height: 0;
+  overflow: hidden;
+  -prefix-animation: slide 1s ease 3.5s forwards;
+}
+@-prefix-keyframes slide {
+  from {
+    height: 0;
+  }
+  to {
+    height: auto;
+  }
+}
+.sl-item {
+  @include flex;
+  align-items: center;
+  i {
+    font-size: 1.9rem;
+  }
+  transition: all 0.4s linear;
+}
+
+.sl-items-title {
+  color: $sl-items-title;
+  font-size: 1.8rem;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.sl-title {
+  color: $sl-title;
+  margin-bottom: 0;
+  font-size: 1.8rem;
+  padding: 0 0 30px;
+  font-family: "Poppins";
+  font-weight: 600;
+}
+.sl-ptag {
+  font-family: "Poppins";
+  font-size: 1.4rem;
+  line-height: 1.65em;
+  color: $sl-ptag;
+}
+.sl-white-box {
+  box-sizing: border-box;
+  border-radius: 2px;
+  background: $white;
+  padding: 30px;
+  margin-bottom: 35px;
 }
