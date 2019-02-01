@@ -1,6 +1,7 @@
 import React, { Component, lazy, Suspense } from "react";
-const Scarousel = lazy(() => import("./SCarousel"));
+import uuid from "uuid";
 
+const Scarousel = lazy(() => import("./SCarousel"));
 const cdata = [
   {
     title: "Boutique Space Greenville",
@@ -12,6 +13,8 @@ const cdata = [
       "Downtown Frederick hot spot. Top location for local entertainment. All fixtures are included. Liquor license can be included. Price includes 3 leased apartments on the second floor income $2,200 per month. Free standing built out restaurant with separate dining/banquet room. Spacious outdoor dining deck. Large commercial kitchen fully equipped. Seating capacity over 200 with large event area with stage and movable dance floor. This opportunity is perfect for investor or owner operator. Keep existing concept or introduce your own.",
     address: [
       {
+        isopen: false,
+        id: uuid(),
         title: "Address",
         address: "Bartholdi Ave",
         city: "Long Beach",
@@ -23,6 +26,8 @@ const cdata = [
     ],
     details: [
       {
+        isopen: false,
+        id: uuid(),
         title: "Details",
         propid: 160,
         price: "$800",
@@ -41,26 +46,33 @@ const cdata = [
       "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg",
       "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
     ],
-    feattitle: "Features",
     features: [
-      "ocean view",
-      "basketball court",
-      "gym",
-      "pound",
-      "pool ",
-      "fenced yard",
-      "sprinklers",
-      "washer and dryer",
-      "deck",
-      "balcony",
-      "laundry",
-      "concierge",
-      "doorman",
-      "private space",
-      "storage"
+      {
+        title: "Features",
+        id: uuid(),
+        isopen: false,
+        ft: [
+          "ocean view",
+          "basketball court",
+          "gym",
+          "pound",
+          "pool ",
+          "fenced yard",
+          "sprinklers",
+          "washer and dryer",
+          "deck",
+          "balcony",
+          "laundry",
+          "concierge",
+          "doorman",
+          "private space",
+          "storage"
+        ]
+      }
     ],
     floorplan: [
       {
+        id: uuid(),
         title: "Floor Plans",
         titleA: "Floor Plan A",
         sizeA: "150 ft2",
@@ -77,7 +89,9 @@ const cdata = [
         desc:
           "Inside this enchanting home, the great room enjoys a fireplace and views of the rear patio. The secluded master suite at the front of the home delights in tons of natural light, a splendid bath, a sitting room with a fireplace, and a private lanai. Three upper-level bedrooms share an optional bonus room, perfect for a home gym, playroom, or studio. Click the home to see the layout!"
       }
-    ]
+    ],
+    walkscore: [{ title: "WalkScore", id: uuid(), isopen: false }],
+    map: [{ title: "Map", id: uuid(), isopen: false }]
   }
 ];
 
@@ -85,14 +99,30 @@ class SingleListing extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      cdata
     };
   }
-
-  toggle = () => {
-    this.setState((state, props) => {
-      return { isOpen: !state.isOpen };
+  toggle = id => {
+    const { cdata } = this.state;
+    const updatedCdata = [...cdata];
+    updatedCdata.map(x => {
+      if (x.address[0].id === id) {
+        x.address[0].isopen = !x.address[0].isopen;
+      } else if (x.details[0].id === id) {
+        x.details[0].isopen = !x.details[0].isopen;
+      } else if (x.features[0].id === id) {
+        x.features[0].isopen = !x.features[0].isopen;
+      } else if (x.walkscore[0].id === id) {
+        x.walkscore[0].isopen = !x.walkscore[0].isopen;
+      } else if (x.map[0].id === id) {
+        x.map[0].isopen = !x.map[0].isopen;
+      } else if (x.floorplan[0].id === id) {
+        x.floorplan[0].isopen = !x.floorplan[0].isopen;
+      }
+      return x;
     });
+
+    this.setState({ cdata: updatedCdata }, () => console.log(cdata));
   };
 
   render() {
@@ -104,8 +134,8 @@ class SingleListing extends Component {
         <span className="pathname">need to add pathname here later </span>
 
         <div className="singlemain">
-          {cdata.map((i, idx) => {
-            console.log(i);
+          {this.state.cdata.map((i, idx) => {
+            console.log("data", i);
             return (
               //parent wrapper
               <div key={idx} className="twosection-parent">
@@ -152,12 +182,21 @@ class SingleListing extends Component {
                   </section>
                   {/* Address section */}
                   <section className="address sl-white-box">
-                    <div className="sl-item" onClick={this.toggle}>
+                    <div
+                      className="sl-item"
+                      onClick={() => this.toggle(i.address[0].id)}
+                    >
                       <h4 className="sl-items-title">{i.address[0].title}</h4>
-                      <i className="fas fa-angle-down" />
+                      {i.address[0].isopen ? (
+                        <i className="fas fa-angle-down" />
+                      ) : (
+                        <i className="fas fa-angle-up" />
+                      )}
                     </div>
                     <div
-                      className={this.state.isOpen ? "ls-toggle-active" : null}
+                      className={
+                        i.address[0].isopen ? "ls-toggle-active" : null
+                      }
                     >
                       <div className="ls-address-info">
                         <p>
@@ -186,13 +225,22 @@ class SingleListing extends Component {
                     </div>
                   </section>
                   {/* details section */}
-                  <section className="address sl-white-box">
-                    <div className="sl-item" onClick={this.toggle}>
+                  <section className="details sl-white-box">
+                    <div
+                      className="sl-item"
+                      onClick={() => this.toggle(i.details[0].id)}
+                    >
                       <h4 className="sl-items-title">{i.details[0].title}</h4>
-                      <i className="fas fa-angle-down" />
+                      {i.details[0].isopen ? (
+                        <i className="fas fa-angle-down" />
+                      ) : (
+                        <i className="fas fa-angle-up" />
+                      )}
                     </div>
                     <div
-                      className={this.state.isOpen ? "ls-toggle-active" : null}
+                      className={
+                        i.details[0].isopen ? "ls-toggle-active" : null
+                      }
                     >
                       <div className="ls-address-info">
                         <p>
@@ -231,12 +279,156 @@ class SingleListing extends Component {
                     </div>
                   </section>
                   {/* Features section */}
+                  <section className="features sl-white-box">
+                    <div
+                      className="sl-item"
+                      onClick={() => this.toggle(i.features[0].id)}
+                    >
+                      <h4 className="sl-items-title">{i.features[0].title}</h4>
+                      {i.features[0].isopen ? (
+                        <i className="fas fa-angle-down" />
+                      ) : (
+                        <i className="fas fa-angle-up" />
+                      )}
+                    </div>
+                    <div
+                      className={
+                        i.features[0].isopen ? "ls-toggle-active" : null
+                      }
+                    >
+                      <div className="feature-section">
+                        {i.features[0].ft.map((feat, idx) => (
+                          <p key={idx}>
+                            <i className="fas fa-check" /> {feat}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
                   {/* Map section */}
+                  <section className="map sl-white-box">
+                    <div
+                      className="sl-item"
+                      onClick={() => this.toggle(i.map[0].id)}
+                    >
+                      <h4 className="sl-items-title">{i.map[0].title}</h4>
+                      {i.map[0].isopen ? (
+                        <i className="fas fa-angle-down" />
+                      ) : (
+                        <i className="fas fa-angle-up" />
+                      )}
+                    </div>
+                    <div
+                      className={i.map[0].isopen ? "ls-toggle-active" : null}
+                    >
+                      <div className="map-section">
+                        load map here from api later
+                      </div>
+                    </div>
+                  </section>
+                  {/* Walkscore section */}
+                  <section className="walkscore sl-white-box">
+                    <div
+                      className="sl-item"
+                      onClick={() => this.toggle(i.walkscore[0].id)}
+                    >
+                      <h4 className="sl-items-title">{i.walkscore[0].title}</h4>
+                      {i.walkscore[0].isopen ? (
+                        <i className="fas fa-angle-down" />
+                      ) : (
+                        <i className="fas fa-angle-up" />
+                      )}{" "}
+                    </div>
+                    <div
+                      className={
+                        i.walkscore[0].isopen ? "ls-toggle-active" : null
+                      }
+                    >
+                      <div className="walkscore-section">
+                        <img
+                          src="https://cdn.walk.sc/images/api-logo.png"
+                          alt="walkscore"
+                        />{" "}
+                        <span>: 48 / Car-Dependent</span>
+                        <a
+                          className="walkscore-link"
+                          href="https://www.walkscore.com/score/loc/lat=40.995597/lng=-74.3412895/?utm_source=wpestate.org&utm_medium=ws_api&utm_campaign=ws_api"
+                        >
+                          more details here
+                        </a>
+                      </div>
+                    </div>
+                  </section>
                   {/* Floor Plans section */}
-                  {/* Page View Statistics section */}
+                  <section className="floorplans sl-white-box">
+                    <div
+                      className="sl-item"
+                      onClick={() => this.toggle(i.floorplan[0].id)}
+                    >
+                      <h4 className="sl-items-title">{i.floorplan[0].title}</h4>
+                      {i.floorplan[0].isopen ? (
+                        <i className="fas fa-angle-down" />
+                      ) : (
+                        <i className="fas fa-angle-up" />
+                      )}
+                    </div>
+                    <div
+                      className={
+                        i.floorplan[0].isopen ? "ls-toggle-active" : null
+                      }
+                    >
+                      <div className="floorplans-section">
+                        <div className="floor-plan-row">
+                          <p>{i.floorplan[0].titleA}</p>
+                          <p>
+                            <span>size:</span> {i.floorplan[0].sizeA}
+                          </p>
+                          <p>
+                            <span>rooms:</span> {i.floorplan[0].roomsA}
+                          </p>
+                          <p>
+                            <span>baths</span> {i.floorplan[0].bathsA}
+                          </p>
+                          <p>
+                            <span>price</span> {i.floorplan[0].priceA}
+                          </p>
+                        </div>
+                        <img
+                          src={i.floorplan[0].img}
+                          alt={i.floorplan[0].img}
+                        />
+                        <p className="floor-desc">{i.floorplan[0].desc}</p>
+                        <div className="floor-plan-row">
+                          <p>{i.floorplan[0].titleB}</p>
+                          <p>
+                            <span>size:</span> {i.floorplan[0].sizeB}
+                          </p>
+                          <p>
+                            <span>rooms:</span> {i.floorplan[0].roomsB}
+                          </p>
+                          <p>
+                            <span>baths</span> {i.floorplan[0].bathsB}
+                          </p>
+                          <p>
+                            <span>price</span> {i.floorplan[0].priceB}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
                   {/* Property Reviews section */}
+                  <section className="prop-review sl-white-box">
+                    <h4 className="sl-items-title">Property Reviews</h4>
+                    <p>
+                      You need to <strong>login</strong> in order to post a
+                      review
+                    </p>
+                  </section>
+                  <section className="similar-listing">
+                    <h3>Similar Listings</h3>
+                    <p>will have to do simliar things json later</p>
+                  </section>
                 </div>
-
                 {/* Right Section */}
                 <div className="tsc-second-item">
                   <h3>Michael Suttherland</h3>

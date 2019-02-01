@@ -116,6 +116,86 @@
   }
 }
 
+//features section
+.feature-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  p {
+    font-size: 1.4rem;
+    width: 30%;
+    font-size: 1.4rem;
+    color: $sl-ptag;
+  }
+  .fas {
+    padding-right: 10px;
+    color: $yellow;
+  }
+}
+
+//walkscore section
+.walkscore-section {
+  display: flex;
+  padding-top: 30px;
+  .walkscore-link {
+    background-color: $walkscore;
+    padding: 1px 3px;
+    font-size: 1.3rem;
+    margin-left: 5px;
+    color: $sl-ptag;
+  }
+  span {
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 1px;
+    font-size: 14px;
+  }
+}
+
+//floor plans
+.floorplans-section {
+  .floor-plan-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    background: $walkscore;
+    margin-top: 20px;
+    p {
+      font-size: 1.4rem;
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+  .floor-desc {
+    font-size: 1.4rem;
+    line-height: 1.65;
+    padding-left: 10px;
+    margin-top: 10px;
+    color: $sl-ptag;
+    padding-bottom: 20px;
+  }
+}
+
+//review section
+.prop-review {
+  p {
+    font-size: 1.4rem;
+    line-height: 1.65;
+    padding-left: 10px;
+    margin-top: 10px;
+    color: $sl-items-title;
+    padding: 10px 0;
+    background: $walkscore;
+    margin-top: 20px;
+    padding-left: 10px;
+  }
+}
 //global styling for single page
 //had to break out of the nested too messy
 // this is left section of single listing page
@@ -139,9 +219,9 @@
   i {
     font-size: 1.9rem;
   }
+  cursor: pointer;
   transition: all 0.4s linear;
 }
-
 .sl-items-title {
   color: $sl-items-title;
   font-size: 1.8rem;
@@ -158,8 +238,8 @@
 }
 .sl-ptag {
   font-family: "Poppins";
-  font-size: 1.4rem;
   line-height: 1.65em;
+  font-size: 1.4rem;
   color: $sl-ptag;
 }
 .sl-white-box {

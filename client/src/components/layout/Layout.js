@@ -20,9 +20,9 @@ const Layout = props => {
       <Route path="/" component={Header} />
       <Route exact path="/" component={Main} />
       <Route path="/listing/:id" component={SingleListing} />
-      <Switch>
+      {/* <Switch>
         <Route path="*" component={NoMatch} />
-      </Switch>
+      </Switch> */}
       <Footer />
     </React.Fragment>
   );
