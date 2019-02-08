@@ -1,10 +1,11 @@
 import React from "react";
-import Layout from "./container/Layout";
+import { Route } from "react-router-dom";
+import LandingPage from "./container/LandingPage";
 
 const App = () => {
   return (
     <React.Fragment>
-      <Layout />
+      <Route path="/" render={props => <LandingPage {...props} />} />
     </React.Fragment>
   );
 };

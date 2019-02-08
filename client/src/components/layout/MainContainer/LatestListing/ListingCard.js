@@ -83,7 +83,7 @@ class ListingCard extends Component {
           </div>
           {/* single page  */}
           <Link
-            to={`/listing/${id}`}
+            to={`/${id}`}
             onClick={() => this.props.getSingleListId(id)}
             style={{ textDecoration: "none", color: "inherit" }}
           >
