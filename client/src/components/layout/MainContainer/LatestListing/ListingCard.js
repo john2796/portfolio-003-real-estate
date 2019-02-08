@@ -81,6 +81,7 @@ class ListingCard extends Component {
             </div>
             {slides}
           </div>
+          {/* single page  */}
           <Link
             to={`/listing/${id}`}
             onClick={() => this.props.getSingleListId(id)}

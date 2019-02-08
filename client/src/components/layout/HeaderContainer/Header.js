@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TopNavbar from "./topnavbar/TopNavbar";
 import Navbar from "./navbar/Navbar";
 import HeaderInfo from "./headerinfo/HeaderInfo";
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Header extends Component {
@@ -32,4 +32,4 @@ const mapStateToProps = state => ({
   listId: state.listing.listId
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps)(withRouter(Header));

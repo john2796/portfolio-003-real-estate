@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 const listing = require("./routes/api/listing");
-
+//middleware
 app.use(cors());
 app.use(logger());
 app.use(bodyParser.json());

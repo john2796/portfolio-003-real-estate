@@ -12,7 +12,6 @@ class LatestListing extends Component {
       tooltipOpen: false
     };
   }
-
   filterData = () => {
     const cardData = this.props.cardData;
     if (this.state.selected === "needtochangelaterbugissue") {
