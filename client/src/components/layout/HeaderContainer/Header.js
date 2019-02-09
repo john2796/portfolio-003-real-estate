@@ -19,7 +19,7 @@ class Header extends Component {
       <div>
         <div className={conditionalStyle}>
           <TopNavbar topnavbar={topnavbar} />
-          {/* the style for bot topnavbar , headerinfo, and navbar is in _Header.scss */}
+          {/* the style for both topnavbar , headerinfo, and navbar is in _Header.scss */}
           <Navbar />
           <Route exact path="/" component={HeaderInfo} />
         </div>

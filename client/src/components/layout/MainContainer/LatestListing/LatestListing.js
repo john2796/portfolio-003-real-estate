@@ -1,5 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
 import { connect } from "react-redux";
+import { Route, withRouter } from "react-router-dom";
 const ListingCard = lazy(() => import("./ListingCard"));
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
 
@@ -31,6 +32,8 @@ class LatestListing extends Component {
 
   render() {
     const { tabs, selected } = this.state;
+    const { match } = this.props;
+
     return (
       <React.Fragment>
         <svg
@@ -93,4 +96,4 @@ const mapStateToProps = state => ({
   cardData: state.listing.cardData
 });
 
-export default connect(mapStateToProps)(LatestListing);
+export default connect(mapStateToProps)(withRouter(LatestListing));

@@ -135,7 +135,6 @@ class SingleListing extends Component {
 
         <div className="singlemain">
           {this.state.cdata.map((i, idx) => {
-            console.log("data", i);
             return (
               //parent wrapper
               <div key={idx} className="twosection-parent">
