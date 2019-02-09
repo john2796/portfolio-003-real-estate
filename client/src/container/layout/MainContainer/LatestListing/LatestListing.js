@@ -1,6 +1,6 @@
 import React, { Component, lazy, Suspense } from "react";
 import { connect } from "react-redux";
-import { Route, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 const ListingCard = lazy(() => import("./ListingCard"));
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
 

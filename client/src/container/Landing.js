@@ -1,11 +1,10 @@
 import React from "react";
-import Main from "../components/layout/MainContainer/Main";
-import Footer from "../components/layout/FooterContainer/Footer";
-import Header from "../components/layout/HeaderContainer/Header";
+import Main from "./layout/MainContainer/Main";
+import Footer from "./layout/FooterContainer/Footer";
+
 const Landing = () => {
   return (
     <React.Fragment>
-      <Header />
       <Main />
       <Footer />
     </React.Fragment>

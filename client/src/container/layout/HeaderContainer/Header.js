@@ -8,20 +8,21 @@ import { connect } from "react-redux";
 class Header extends Component {
   render() {
     let conditionalStyle =
-      this.props.location.pathname === `/listing/${this.props.listId}`
-        ? "listing-style"
-        : "bg-banner-header";
+      this.props.location.pathname === `/`
+        ? "bg-banner-header"
+        : "listing-style";
     let topnavbar =
-      this.props.location.pathname === `/listing/${this.props.listId}`
-        ? "listing-textwidget"
-        : "textwidget";
+      this.props.location.pathname === `/`
+        ? "textwidget"
+        : "listing-textwidget";
+    console.log(this.props.location.pathname);
     return (
       <div>
         <div className={conditionalStyle}>
           <TopNavbar topnavbar={topnavbar} />
-          {/* the style for both topnavbar , headerinfo, and navbar is in _Header.scss */}
+          {/* the style for bot topnavbar , headerinfo, and navbar is in _Header.scss */}
           <Navbar />
-          <Route exact path="/" component={HeaderInfo} />
+          <HeaderInfo />
         </div>
       </div>
     );
