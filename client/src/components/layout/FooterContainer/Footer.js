@@ -95,7 +95,9 @@ class Footer extends Component {
               <p>Buyer's Choice</p>
               <div className="prvcy">
                 <p className="first-ptag">Privacy Policy</p>
-                <p>Terms of Use</p>
+                <p style={{ marginLeft: 20 }}>
+                  © Zillow, Inc., 2006-2016. Use is subject to{" "}
+                </p>
               </div>
             </nav>
           </div>

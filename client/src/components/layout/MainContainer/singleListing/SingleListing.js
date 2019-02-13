@@ -1,6 +1,8 @@
 import React, { Component, lazy, Suspense } from "react";
 import uuid from "uuid";
 
+import BreadCrumbs from "./BreadCrumbs";
+import SinglePageRight from "../singlePagerightSide/SinglePageRight";
 const Scarousel = lazy(() => import("./SCarousel"));
 const cdata = [
   {
@@ -95,6 +97,7 @@ const cdata = [
   }
 ];
 
+///the bug with single page Navbar could be because the id changes when you refresh the page
 class SingleListing extends Component {
   constructor(props) {
     super(props);
@@ -102,6 +105,8 @@ class SingleListing extends Component {
       cdata
     };
   }
+
+  //single page tab
   toggle = id => {
     const { cdata } = this.state;
     const updatedCdata = [...cdata];
@@ -121,18 +126,16 @@ class SingleListing extends Component {
       }
       return x;
     });
-
-    this.setState({ cdata: updatedCdata }, () => console.log(cdata));
+    this.setState({ cdata: updatedCdata });
   };
-
   render() {
     return (
       <React.Fragment>
         <Suspense fallback={<h1>loading</h1>}>
           <Scarousel cdata={cdata} />
         </Suspense>
-        <span className="pathname">need to add pathname here later </span>
-
+        {/* will need to connect later */}
+        <BreadCrumbs />
         <div className="singlemain">
           {this.state.cdata.map((i, idx) => {
             return (
@@ -430,8 +433,7 @@ class SingleListing extends Component {
                 </div>
                 {/* Right Section */}
                 <div className="tsc-second-item">
-                  <h3>Michael Suttherland</h3>
-                  <p>will work on here after i finished left section</p>
+                  <SinglePageRight cdata={this.state.cdata} />
                 </div>
               </div>
             );
