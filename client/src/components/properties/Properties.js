@@ -1,68 +1,178 @@
 import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
-import MapPage from "./Map/MapPage";
-import styled from "styled-components";
-import PropertyContent from "./propertycontent/PropertyContent";
-const PropertiesStyle = styled.div`
-  .property-container {
-    width: 100vw;
-    border: 1px solid red;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    /* //1 */
-    position: relative;
-    top: 121px;
-    padding-bottom: 150px;
-  }
-  .property-left {
-    border: 1px solid blue;
-    width: 50%;
-    height: 100vh;
-
-    font-weight: 500;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-  }
-  .property-right {
-    border: 1px solid green;
-    width: 100%;
-  }
-  .propright-title {
-    font-size: 3rem;
-    margin-left: 15px;
-  }
-  .card_container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    .card {
-      margin: 10px;
+import Grid from "@material-ui/core/Grid";
+import MapAndMarkers from "./propertyV2/MapAndMarkers";
+import PaginationComponent from "./propertyV2/PaginationComponent";
+import LocationCard from "./propertyV2/LocationCard";
+import FlightTakeoff from "@material-ui/icons/FlightTakeoff";
+import Typography from "@material-ui/core/Typography";
+const styles = theme => ({
+  root: {
+    justifyContent: "flex-start",
+    height: "100%",
+    width: "100%",
+    display: "block",
+    overflow: "hidden"
+  },
+  mapDiv: {
+    height: "100%",
+    width: "65%",
+    display: "inline-block",
+    position: "sticky",
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen
+    }),
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
     }
+  },
+  listGridDiv: {
+    overflow: "auto",
+    height: "85vh",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center"
+    }
+  },
+  parentDiv: {
+    display: "flex",
+    justifyContent: "space-between",
+    height: "100%",
+    overflow: "hidden"
+  },
+  subTitleDiv: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    marginBottom: 15,
+    [theme.breakpoints.down("sm")]: {
+      width: "90%"
+    }
+  },
+  subtitle: {
+    marginTop: "35px"
+  },
+  planeIcon: {
+    color: "#F44436",
+    marginTop: 15,
+    marginRight: 15,
+    fontSize: 35
+  },
+  paginationSection: {
+    height: "100px",
+    margin: 50,
+    width: "100%",
+    display: "flex",
+    justifyContent: "center"
   }
-`;
+});
 
 class Properties extends Component {
+  state = {
+    currentPage: 1,
+    hoveredCardId: "",
+    mapShowing: true
+  };
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
+  setCardMarkerHover = location => {
+    {
+      this.setState({ hoveredCardId: location });
+    }
+  };
+  resetCardMarkerHover = () => {
+    this.setState({ hoveredCardId: "" });
+  };
+  toggleMapShowing = () => {
+    this.setState({ mapShowing: !this.state.mapShowing });
+  };
   render() {
-    const filterData = this.props.data.filter((d, idx) => idx < 9);
+    const { data, classes } = this.props;
+    const { currentPage, mapShowing, hoveredCardId } = this.state;
+    const resultPerPage = 30;
+    const total = Math.ceil(data.length); //389
+    const pageCount = Math.ceil(total / resultPerPage); //13
+    const offset = (currentPage - 1) * resultPerPage;
+    const locationsSlicedDownOnPage = data.slice(
+      offset,
+      offset + resultPerPage
+    ); //30
+
     return (
-      <PropertiesStyle>
-        <div className="property-container ">
-          <div className="property-left">
-            <MapPage filterData={filterData} />
-          </div>
-          <div className="property-right">
-            <div className="card_container">
-              {filterData.map((item, idx) => (
-                <div key={idx}>
-                  <PropertyContent items={item} />
-                </div>
-              ))}
+      <div className={classes.root}>
+        <div className={classes.parentDiv}>
+          <Grid
+            container
+            spacing={0}
+            className={classes.listGridDiv}
+            justify={mapShowing ? "flex-start" : "space-evenly"}
+          >
+            {/* message on top of the map */}
+            <div className={classes.subTitleDiv}>
+              <FlightTakeoff color="secondary" className={classes.planeIcon} />
+              <Typography
+                variant="subtitle1"
+                className={classes.subtitle}
+                gutterBottom
+              >
+                Explore and Filter the New York Times recommended travel
+                destinations since 2011.
+              </Typography>
             </div>
-          </div>
+
+            {/* LocationCard */}
+            {locationsSlicedDownOnPage.map((location, index) => (
+              <Grid key={index} item>
+                <LocationCard
+                  setCardMarkerHover={this.setCardMarkerHover}
+                  resetCardMarkerHover={this.resetCardMarkerHover}
+                  location={location}
+                />
+              </Grid>
+            ))}
+
+            {total > 20 && (
+              <div className={classes.paginationSection}>
+                <PaginationComponent
+                  total={total}
+                  resultsPerPage={resultPerPage}
+                  pageCount={pageCount}
+                  currentPage={currentPage}
+                  handlePageChange={this.handlePageChange}
+                  offset={offset}
+                />
+              </div>
+            )}
+            {mapShowing && (
+              <div className={classes.mapDiv}>
+                <MapAndMarkers
+                  locations={locationsSlicedDownOnPage}
+                  hoveredCardId={hoveredCardId}
+                />
+              </div>
+            )}
+          </Grid>
         </div>
-      </PropertiesStyle>
+      </div>
+      // <PropertiesStyle>
+      //   <div className="property-container ">
+      //     <div className="property-left">
+      //       <MapPage filterData={filterData} />
+      //     </div>
+      //     <div className="property-right">
+      //       <div className="card_container">
+      //         {filterData.map((item, idx) => (
+      //           <div key={idx}>
+      //             <PropertyContent items={item} />
+      //           </div>
+      //         ))}
+      //       </div>
+      //     </div>
+      //   </div>
+      // </PropertiesStyle>
     );
   }
 }
@@ -70,4 +180,4 @@ class Properties extends Component {
 const mapStateToProps = state => ({
   data: state.propertyReducer.data
 });
-export default connect(mapStateToProps)(Properties);
+export default connect(mapStateToProps)(withStyles(styles)(Properties));
