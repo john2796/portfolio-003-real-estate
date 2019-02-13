@@ -10,6 +10,10 @@ const PropertiesStyle = styled.div`
     width: 100%;
     margin: 0 auto;
     display: flex;
+    /* //1 */
+    position: relative;
+    top: 121px;
+    padding-bottom: 150px;
   }
   .property-left {
     border: 1px solid blue;
@@ -46,10 +50,9 @@ class Properties extends Component {
       <PropertiesStyle>
         <div className="property-container ">
           <div className="property-left">
-            <MapPage />
+            <MapPage filterData={filterData} />
           </div>
           <div className="property-right">
-            <h2 className="propright-title">Prop List Half Map</h2>
             <div className="card_container">
               {filterData.map((item, idx) => (
                 <div key={idx}>

@@ -15,12 +15,12 @@ import CardCarousel from "../CardCarousel";
 const PropertyContentStyle = styled.div`
   .property-card {
     border: 3px solid green;
-    max-width: 250px;
+    max-width: 280px;
     margin: 0 3%;
   }
   .card-carousel {
-    max-height: 250px;
-    min-height: 250px;
+    max-height: 280px;
+    min-height: 280px;
   }
 `;
 class PropertyContent extends Component {
@@ -41,6 +41,8 @@ class PropertyContent extends Component {
 
   render() {
     let id = 1;
+    const { items } = this.props;
+
     return (
       <PropertyContentStyle>
         <Card className="property-card">

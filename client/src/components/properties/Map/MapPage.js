@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Map from "pigeon-maps";
 import Marker from "pigeon-marker";
 import Overlay from "pigeon-overlay";
-
+import { connect } from "react-redux";
 class MapPage extends Component {
   _isMounted = false;
   constructor(props) {
@@ -38,9 +38,10 @@ class MapPage extends Component {
 
   render() {
     const { initialLocation } = this.state;
+
     return (
-      <Map center={[33.1605, -117.0978]} zoom={12} width={500} height={865}>
-        {this.state.initialLocation.map((marker, index) => {
+      <Map center={[33.1605, -117.0978]} zoom={12} width={700}>
+        {this.props.markers.map((marker, index) => {
           return (
             <Marker
               key={index}
@@ -57,4 +58,8 @@ class MapPage extends Component {
     );
   }
 }
-export default MapPage;
+const mapStateToProps = state => ({
+  markers: state.propertyReducer.data
+});
+
+export default connect(mapStateToProps)(MapPage);
