@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import Slider from "react-slick";
 import { withStyles } from "@material-ui/core/styles";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import CardMedia from "@material-ui/core/CardMedia";
 import ChevronLeft from "@material-ui/icons/ChevronLeft";

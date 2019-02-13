@@ -5,7 +5,7 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Launch from "@material-ui/icons/Launch";
-import CardCarousel from "../CardCarousel";
+import CardCarousel from "../propertyV2/CardCarousel";
 const styles = theme => ({
   card: {
     width: 340,

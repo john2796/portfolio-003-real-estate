@@ -68,7 +68,6 @@ const styles = theme => ({
     justifyContent: "center"
   }
 });
-
 class Properties extends Component {
   state = {
     currentPage: 1,
@@ -176,7 +175,6 @@ class Properties extends Component {
     );
   }
 }
-
 const mapStateToProps = state => ({
   data: state.propertyReducer.data
 });
