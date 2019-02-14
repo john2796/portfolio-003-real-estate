@@ -1,73 +1,68 @@
-# portfolio-003-real-estate
-build real estate website using mern
-# mern-stack
-MongoDB, Expressjs, React/Redux, Nodejs
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## clone or download and send me PR(please)
-```terminal
-```
+## Available Scripts
 
-# Usage(make it run on your machine)
-- You need make the both the following two run
+In the project directory, you can run:
 
-## Prerequirements
-- [MongoDB](https://gist.github.com/nrollr/9f523ae17ecdbb50311980503409aeb3)
-- [Node](https://nodejs.org/en/download/) ^8.0.0
-- [npm](https://nodejs.org/en/download/package-manager/)
+### `npm start`
 
-## Client-side usage(PORT: 3000)
-```terminal
-$ cd client
-$ npm i
-$ npm run dev
-```
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Server-side usage(PORT: 8000)
-(You need to add a JWT_SECRET in .env to connect to MongoDB -> make it run -> check your terminal for instructions
-)
-```terminal
-$ cd server
-$ npm i
-$ npm run dev
-```
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-## Deploy Server to [Heroku](https://dashboard.heroku.com/)
-```terminal
-$ npm i -g heroku
-$ heroku login
-$ heroku create
-$ npm run heroku:add <your-heroku-app-name>
-$ npm run deploy:heroku
-```
+### `npm test`
 
-# Dependencies(tech-stacks)
-Client-side | Server-side
---- | ---
-axios: ^0.15.3 | bcrypt-nodejs: ^0.0.3
-babel-preset-stage-1: ^6.1.18|body-parser: ^1.15.2
-lodash: ^3.10.1 | cors: ^2.8.1
-react: ^16.2.0 | dotenv: ^2.0.0
-react-dom: ^16.2.0 | express: ^4.14.0
-react-redux: ^4.0.0 | jwt-simple: ^0.5.1
-react-router-dom: ^4.2.2 | mongoose: ^4.7.4
-redux: ^3.7.2 | morgan: ^1.7.0
-redux-form: ^6.4.1 |
-redux-thunk: ^2.1.0 |
+Launches the test runner in the interactive watch mode.<br>
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-# Screenshots of this project
+### `npm run build`
 
-User visit public and Home page
-![User visit public and Home page](http://i.imgur.com/ORCGHHY.png)
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-User can sign in or sign up
-![User can sign in or sign up](http://i.imgur.com/rrmbU5I.png)
+The build is minified and the filenames include the hashes.<br>
+Your app is ready to be deployed!
 
-After signing in user can go to account route and make request to token-protected API endpoint
-![After signing in user can go to account route](http://i.imgur.com/FzLB51u.png)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## BUGs or comments
-[Create new Issues](https://github.com/amazingandyyy/mern-stack/issues)
+### `npm run eject`
 
-## Author
-john miranda
-### License
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
