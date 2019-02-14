@@ -1,6 +1,7 @@
 import React from "react";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const BreadCrumbsStyle = styled.div`
   .breadcrumb {
@@ -13,12 +14,9 @@ const BreadCrumbs = () => {
     <BreadCrumbsStyle>
       <Breadcrumb className="bg-color">
         <BreadcrumbItem>
-          <a href="#">Home</a>
+          <Link to="/">Home</Link>
         </BreadcrumbItem>
-        <BreadcrumbItem>
-          <a href="#">Library</a>
-        </BreadcrumbItem>
-        <BreadcrumbItem active>Data</BreadcrumbItem>
+        <BreadcrumbItem active>Listing</BreadcrumbItem>
       </Breadcrumb>
     </BreadCrumbsStyle>
   );

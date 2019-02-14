@@ -66,7 +66,6 @@ class MorgageCalculator extends Component {
   };
 
   render() {
-    console.log(this.state.principle);
     return (
       <MorgageCalculatorStyle>
         <Card>

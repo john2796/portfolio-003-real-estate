@@ -96,7 +96,6 @@ const cdata = [
     map: [{ title: "Map", id: uuid(), isopen: false }]
   }
 ];
-
 ///the bug with single page Navbar could be because the id changes when you refresh the page
 class SingleListing extends Component {
   constructor(props) {
@@ -426,10 +425,10 @@ class SingleListing extends Component {
                       review
                     </p>
                   </section>
-                  <section className="similar-listing">
+                  {/* <section className="similar-listing">
                     <h3>Similar Listings</h3>
                     <p>will have to do simliar things json later</p>
-                  </section>
+                  </section> */}
                 </div>
                 {/* Right Section */}
                 <div className="tsc-second-item">

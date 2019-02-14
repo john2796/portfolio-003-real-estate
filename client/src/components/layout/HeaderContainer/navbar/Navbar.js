@@ -21,7 +21,8 @@ const Navbar = () => {
         <div>
           <Link to="/">Home</Link>
           <Link to="/property">Properties</Link>
-          <a href="/#">Agents</a>
+          {/* hard coded nums for dev */}
+          <Link to="/listing/2">Agents</Link>
           <a href="/#">Blog</a>
           <a href="/#">Features</a>
           <a href="/#">
