@@ -86,6 +86,7 @@ const styles = theme => ({
 class MapMarker extends React.Component {
   render() {
     const { classes, pageid, hoveredCardId } = this.props;
+
     return (
       <div className={classes.markerParent}>
         <span

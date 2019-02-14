@@ -28,7 +28,6 @@ class MapAndMarkers extends React.Component {
 
   render() {
     const { classes, locations, hoveredCardId, pageid } = this.props;
-
     let MapMarkers = locations.map((location, index) => {
       return (
         <MapMarker

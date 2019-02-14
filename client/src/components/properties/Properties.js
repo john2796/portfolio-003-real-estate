@@ -1,12 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import MapAndMarkers from "./propertyV2/MapAndMarkers";
 import PaginationComponent from "./propertyV2/PaginationComponent";
-import LocationCard from "./propertyV2/LocationCard";
 import FlightTakeoff from "@material-ui/icons/FlightTakeoff";
 import Typography from "@material-ui/core/Typography";
+
+const LocationCardLz = lazy(() => import("./propertyV2/LocationCard"));
 const styles = theme => ({
   root: {
     justifyContent: "flex-start",
@@ -16,7 +17,7 @@ const styles = theme => ({
     overflow: "hidden"
   },
   mapDiv: {
-    height: "100%",
+    height: "88vh",
     width: "65%",
     display: "inline-block",
     position: "sticky",
@@ -24,13 +25,14 @@ const styles = theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
+
     [theme.breakpoints.down("sm")]: {
       display: "none"
     }
   },
   listGridDiv: {
     overflow: "auto",
-    height: "100vh",
+    height: "85vh",
     [theme.breakpoints.down("sm")]: {
       justifyContent: "center"
     }
@@ -42,7 +44,6 @@ const styles = theme => ({
     overflow: "hidden"
   },
   subTitleDiv: {
-    marginTop: "150px",
     width: "100%",
     display: "flex",
     alignItems: "center",
@@ -80,7 +81,7 @@ class Properties extends Component {
   };
   setCardMarkerHover = location => {
     {
-      this.setState({ hoveredCardId: location });
+      this.setState({ hoveredCardId: location.pageid });
     }
   };
   resetCardMarkerHover = () => {
@@ -123,15 +124,17 @@ class Properties extends Component {
             </div>
 
             {/* LocationCard */}
-            {locationsSlicedDownOnPage.map((location, index) => (
-              <Grid key={index} item>
-                <LocationCard
-                  setCardMarkerHover={this.setCardMarkerHover}
-                  resetCardMarkerHover={this.resetCardMarkerHover}
-                  location={location}
-                />
-              </Grid>
-            ))}
+            <Suspense fallback={<div>loading ..</div>}>
+              {locationsSlicedDownOnPage.map((location, index) => (
+                <Grid key={index} item>
+                  <LocationCardLz
+                    setCardMarkerHover={this.setCardMarkerHover}
+                    resetCardMarkerHover={this.resetCardMarkerHover}
+                    location={location}
+                  />
+                </Grid>
+              ))}
+            </Suspense>
 
             {total > 20 && (
               <div className={classes.paginationSection}>
