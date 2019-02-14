@@ -245,12 +245,6 @@
 
 // single list item style
 .listing-style {
-  margin: 0 auto;
-  position: fixed;
-  top: 35px;
-  background: white;
-  z-index: 99;
-  width: 100%;
   .listing-textwidget {
     font-size: 13px;
     line-height: 22px;
@@ -261,12 +255,6 @@
     background: $headertabletnav;
     padding-right: 40px;
     margin-bottom: 0;
-    //1
-    position: fixed;
-    background: black;
-    z-index: 9999;
-    top: 0;
-    width: 100%;
     @include lg {
       width: 100%;
       padding: 25px 0;

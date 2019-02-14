@@ -30,7 +30,7 @@ const styles = theme => ({
   },
   listGridDiv: {
     overflow: "auto",
-    height: "85vh",
+    height: "100vh",
     [theme.breakpoints.down("sm")]: {
       justifyContent: "center"
     }
@@ -42,6 +42,7 @@ const styles = theme => ({
     overflow: "hidden"
   },
   subTitleDiv: {
+    marginTop: "150px",
     width: "100%",
     display: "flex",
     alignItems: "center",
@@ -105,7 +106,6 @@ class Properties extends Component {
         <div className={classes.parentDiv}>
           <Grid
             container
-            spacing={0}
             className={classes.listGridDiv}
             justify={mapShowing ? "flex-start" : "space-evenly"}
           >
@@ -145,33 +145,18 @@ class Properties extends Component {
                 />
               </div>
             )}
-            {mapShowing && (
-              <div className={classes.mapDiv}>
-                <MapAndMarkers
-                  locations={locationsSlicedDownOnPage}
-                  hoveredCardId={hoveredCardId}
-                />
-              </div>
-            )}
           </Grid>
+
+          {mapShowing && (
+            <div className={classes.mapDiv}>
+              <MapAndMarkers
+                locations={locationsSlicedDownOnPage}
+                hoveredCardId={hoveredCardId}
+              />
+            </div>
+          )}
         </div>
       </div>
-      // <PropertiesStyle>
-      //   <div className="property-container ">
-      //     <div className="property-left">
-      //       <MapPage filterData={filterData} />
-      //     </div>
-      //     <div className="property-right">
-      //       <div className="card_container">
-      //         {filterData.map((item, idx) => (
-      //           <div key={idx}>
-      //             <PropertyContent items={item} />
-      //           </div>
-      //         ))}
-      //       </div>
-      //     </div>
-      //   </div>
-      // </PropertiesStyle>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 const latestlisting = [
   {
     image:
@@ -23,7 +24,14 @@ class Footer extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="footer">
+        <div
+          className="footer"
+          style={
+            this.props.location.pathname === "/property"
+              ? { display: "none" }
+              : null
+          }
+        >
           <div className="footer-flexparent">
             <div className="footer-item">
               <h3 className="footer-item-title">About</h3>
@@ -106,4 +114,4 @@ class Footer extends Component {
     );
   }
 }
-export default Footer;
+export default withRouter(Footer);
