@@ -19,7 +19,7 @@ const HeaderInfo = props => (
       </div>
     </div>
 
-    <div className="header-carousel-indicators">
+    <div className="header-carousel-indicators" hidden>
       <div className="tp-bullet selected" />
       <div className="tp-bullet" />
       <div className="tp-bullet" />
