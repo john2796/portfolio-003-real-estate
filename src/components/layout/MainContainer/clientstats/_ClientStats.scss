@@ -16,7 +16,6 @@
   flex-wrap: wrap;
   justify-content: center;
   @include lg {
-    border: 1px solid red;
     padding-left: 40px;
   }
   @include md {

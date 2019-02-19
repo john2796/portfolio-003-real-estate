@@ -72,7 +72,7 @@ $screen-xl-max: 1200px; // Large tablets and desktops
 
 @mixin wrapper {
   max-width: 1200px;
-  border: 1px solid red;
+
   width: 95%;
   margin: 0 auto;
 }

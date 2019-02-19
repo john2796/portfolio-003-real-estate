@@ -18,23 +18,22 @@ const styles = theme => ({
   },
   mapDiv: {
     height: "88vh",
-    width: "65%",
+    width: "68%",
     display: "inline-block",
     position: "sticky",
+    border: "12px solid white",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    }),
-
-    [theme.breakpoints.down("sm")]: {
-      display: "none"
-    }
+    })
   },
   listGridDiv: {
     overflow: "auto",
     height: "85vh",
-    [theme.breakpoints.down("sm")]: {
-      justifyContent: "center"
+    [theme.breakpoints.down("md")]: {
+      justifyContent: "center",
+      width: "417px",
+      padding: "20px 27px"
     }
   },
   parentDiv: {
@@ -93,7 +92,7 @@ class Properties extends Component {
   render() {
     const { data, classes } = this.props;
     const { currentPage, mapShowing, hoveredCardId } = this.state;
-    const resultPerPage = 30;
+    const resultPerPage = 10;
     const total = Math.ceil(data.length); //389
     const pageCount = Math.ceil(total / resultPerPage); //13
     const offset = (currentPage - 1) * resultPerPage;
@@ -110,20 +109,6 @@ class Properties extends Component {
             className={classes.listGridDiv}
             justify={mapShowing ? "flex-start" : "space-evenly"}
           >
-            {/* message on top of the map */}
-            <div className={classes.subTitleDiv}>
-              <FlightTakeoff color="secondary" className={classes.planeIcon} />
-              <Typography
-                variant="subtitle1"
-                className={classes.subtitle}
-                gutterBottom
-              >
-                Explore and Filter the New York Times recommended travel
-                destinations since 2011.
-              </Typography>
-            </div>
-
-            {/* LocationCard */}
             <Suspense fallback={<div>loading ..</div>}>
               {locationsSlicedDownOnPage.map((location, index) => (
                 <Grid key={index} item>

@@ -1,4 +1,5 @@
 import React, { Component, lazy, Suspense } from "react";
+import ToolTipPage from "../../../toolTip/Tooltip";
 import { connect } from "react-redux";
 const ListingCard = lazy(() => import("./ListingCard"));
 const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
@@ -84,7 +85,9 @@ class LatestListing extends Component {
               })}
             </Suspense>
           </div>
-          <button className="secondary-btn">Load More Listings</button>
+          <ToolTipPage message="still working on this 💛">
+            <button className="secondary-btn">Load More Listings</button>
+          </ToolTipPage>
         </div>
       </React.Fragment>
     );

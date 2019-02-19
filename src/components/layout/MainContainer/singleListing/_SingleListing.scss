@@ -13,7 +13,6 @@
 }
 
 .sp-controls {
-  border: 1px solid red;
   padding: 250px 3%; // height for images comming from here
   display: flex;
   justify-content: space-between;
@@ -42,7 +41,7 @@
     max-width: 70%;
     min-width: 70%;
     margin-right: 3%;
-    border: 1px solid red;
+
     .tandp {
       @include flex;
       h1 {
