@@ -48,6 +48,8 @@ class LatestListing extends Component {
           <polygon points="0.156661,3.93701e-006 0.156661,0.000429134 0.117665,0.05 0.0783307,0.0999961 0.0389961,0.05 -0,0.000429134 -0,3.93701e-006 0.0783307,3.93701e-006 " />
         </svg>
         <div className="listing-wrapper">
+          <a name="middle" />
+
           <h2 className="listing-title">Our latest listings</h2>
           <nav className="listing-nav">
             {!this.filterData().length

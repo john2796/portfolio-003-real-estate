@@ -13,10 +13,10 @@ const HeaderInfo = props => (
         presence, we provide maximum exposure for our listings, reaching
         qualified buyeres regardless of where they are based.
       </p>
-      <div className="header-yellow-btn">
+      <a className="header-yellow-btn aunder" href="#middle">
         VIEW MORE
         <i className="fas fa-chevron-right" />
-      </div>
+      </a>
     </div>
 
     <div className="header-carousel-indicators" hidden>
