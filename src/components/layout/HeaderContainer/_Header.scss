@@ -60,6 +60,9 @@
 .mobile-list {
   display: none;
 }
+.desktop-list {
+  display: block;
+}
 @include lg {
   .mobile-list {
     display: block;
