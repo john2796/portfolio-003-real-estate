@@ -57,9 +57,16 @@
     }
   }
 }
+.main-nav-drawer {
+  display: none;
+}
 .tablet-nav {
   display: none;
   @include lg {
+    .main-nav-drawer {
+      display: block;
+      border: 10px solid red;
+    }
     display: block;
     background: $headertabletnav;
     .twrapper {
@@ -84,6 +91,7 @@
       font-size: 1.8rem;
       margin-left: 15px;
       margin-top: 19px;
+      cursor: pointer;
     }
   }
 }
