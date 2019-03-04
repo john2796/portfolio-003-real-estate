@@ -57,16 +57,35 @@
     }
   }
 }
+.mobile-list {
+  display: none;
+}
+@include lg {
+  .mobile-list {
+    display: block;
+
+    a {
+      color: black;
+      display: block;
+      margin: 0 auto;
+      font-size: 2rem;
+      line-height: 3.5rem;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
 .main-nav-drawer {
   display: none;
+}
+@include lg {
+  .main-nav-drawer {
+    display: block;
+  }
 }
 .tablet-nav {
   display: none;
   @include lg {
-    .main-nav-drawer {
-      display: block;
-      border: 10px solid red;
-    }
     display: block;
     background: $headertabletnav;
     .twrapper {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { Drawer } from "@material-ui/core";
+import Drawer from "../../../drawer/Drawer";
+import NavList from "../../../nav-list/NavList";
 
 class Navbar extends Component {
   state = {
@@ -30,26 +30,7 @@ class Navbar extends Component {
               </div>
             </a>
           </div>
-          <div>
-            <Link to="/">Home</Link>
-            <Link to="/property">Properties</Link>
-            {/* hard coded nums for dev */}
-            <Link to="/listing/2">Agents</Link>
-            <a href="/#">Blog</a>
-            <a href="/#">Features</a>
-            <a href="/#">
-              <i className="fab fa-facebook-f" />
-            </a>
-            <a href="/#">
-              <i className="fab fa-pinterest-p" />
-            </a>
-            <a href="/#">
-              <i className="fab fa-twitter" />
-            </a>
-            <a href="/#">
-              <i className="fab fa-instagram" />
-            </a>
-          </div>
+          <NavList />
         </nav>
         {/* tablet nav */}
         <Drawer
