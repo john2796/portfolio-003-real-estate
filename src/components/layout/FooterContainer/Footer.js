@@ -39,12 +39,11 @@ class Footer extends Component {
                 WP RESIDENCE is committed to delivering a high level of
                 expertise, customer service, and attention to detail to the
                 marketing and sales of luxury real estate, and rental
-                properties.{" "}
+                properties.
                 <a href="/">
                   READ MORE
                   <i className="fas fa-arrow-right" />
-                </a>{" "}
-                .
+                </a>
               </p>
             </div>
 
