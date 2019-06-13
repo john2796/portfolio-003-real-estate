@@ -87,7 +87,7 @@ class LatestListing extends Component {
               })}
             </Suspense>
           </div>
-          <ToolTipPage message="still working on this 💛">
+          <ToolTipPage message="No More data 💛">
             <button className="secondary-btn">Load More Listings</button>
           </ToolTipPage>
         </div>

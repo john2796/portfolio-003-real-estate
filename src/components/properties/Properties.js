@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import MapAndMarkers from "./propertyV2/MapAndMarkers";
 import PaginationComponent from "./propertyV2/PaginationComponent";
-import FlightTakeoff from "@material-ui/icons/FlightTakeoff";
-import Typography from "@material-ui/core/Typography";
 
 const LocationCardLz = lazy(() => import("./propertyV2/LocationCard"));
 const styles = theme => ({
@@ -79,9 +77,7 @@ class Properties extends Component {
     this.setState({ currentPage: page });
   };
   setCardMarkerHover = location => {
-    {
-      this.setState({ hoveredCardId: location.pageid });
-    }
+    this.setState({ hoveredCardId: location.pageid });
   };
   resetCardMarkerHover = () => {
     this.setState({ hoveredCardId: "" });
