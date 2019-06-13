@@ -23,7 +23,7 @@ const latestlisting = [
 class Footer extends Component {
   render() {
     return (
-      <React.Fragment>
+      <>
         <div
           className="footer"
           style={
@@ -108,7 +108,7 @@ class Footer extends Component {
             </nav>
           </div>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }
