@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from "react"
+import { connect } from "react-redux"
 import {
   Card,
   CardText,
@@ -7,45 +7,46 @@ import {
   CardTitle,
   CardSubtitle,
   Tooltip
-} from "reactstrap";
-import { getSingleListId } from "../../../../store/actions/listingAction";
-import { Link } from "react-router-dom";
+} from "reactstrap"
+import { getSingleListId } from "../../../../store/actions/listingAction"
+import { Link } from "react-router-dom"
+import agent_1 from "../../../../assets/agent_1.jpg"
 
 class ListingCard extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       activeIndex: 0
-    };
+    }
   }
   next = () => {
-    const { images } = this.props;
+    const { images } = this.props
     const nextIndex =
       this.state.activeIndex === images.length - 1
         ? 0
-        : this.state.activeIndex + 1;
+        : this.state.activeIndex + 1
     this.setState((state, props) => {
-      return { activeIndex: (state.activeIndex = nextIndex) };
-    });
-  };
+      return { activeIndex: (state.activeIndex = nextIndex) }
+    })
+  }
   previous = () => {
-    const { images } = this.props;
+    const { images } = this.props
     const nextIndex =
       this.state.activeIndex === 0
         ? images.length - 1
-        : this.state.activeIndex - 1;
+        : this.state.activeIndex - 1
     this.setState((state, props) => {
-      return { activeIndex: (state.activeIndex = nextIndex) };
-    });
-  };
+      return { activeIndex: (state.activeIndex = nextIndex) }
+    })
+  }
   render() {
-    const { images, tooltipOpen, toggle, id } = this.props;
+    const { images, tooltipOpen, toggle, id } = this.props
     if (!images) {
-      return <span>listings currently not available</span>;
+      return <span>listings currently not available</span>
     }
     const slides = images.map((item, index) => {
       let computedClass =
-        index === this.state.activeIndex ? "slide active" : "slide";
+        index === this.state.activeIndex ? "slide active" : "slide"
       return (
         <div key={index} className={computedClass}>
           <div
@@ -54,8 +55,8 @@ class ListingCard extends Component {
             alt={item.altText}
           />
         </div>
-      );
-    });
+      )
+    })
 
     return (
       <>
@@ -110,10 +111,7 @@ class ListingCard extends Component {
 
               <div className="property-location">
                 <div className="property-name">
-                  <img
-                    src="https://losangeles.wpresidence.net/wp-content/uploads/2014/05/agent2-1-120x120.jpg"
-                    alt=""
-                  />
+                  <img src={agent_1} alt="" />
                   <h5>Michael Suttherland</h5>
                 </div>
                 <span className="property-share">
@@ -125,10 +123,7 @@ class ListingCard extends Component {
           </Link>
         </Card>
       </>
-    );
+    )
   }
 }
-export default connect(
-  null,
-  { getSingleListId }
-)(ListingCard);
+export default connect(null, { getSingleListId })(ListingCard)

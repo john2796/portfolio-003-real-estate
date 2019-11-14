@@ -1,9 +1,15 @@
-import React, { Component, lazy, Suspense } from "react";
-import uuid from "uuid";
+import React, { Component, lazy, Suspense } from "react"
+import uuid from "uuid"
 
-import BreadCrumbs from "./BreadCrumbs";
-import SinglePageRight from "../singlePagerightSide/SinglePageRight";
-const Scarousel = lazy(() => import("./SCarousel"));
+import BreadCrumbs from "./BreadCrumbs"
+import SinglePageRight from "../singlePagerightSide/SinglePageRight"
+import city_1 from "../../../../assets/city_1.jpg"
+import city_2 from "../../../../assets/city_2.jpg"
+import city_3 from "../../../../assets/city_3.jpg"
+import floorplan_1 from "../../../../assets/floor-plan_1.jpg"
+import apiLogo_1 from "../../../../assets/apiLogo_1.png"
+const Scarousel = lazy(() => import("./SCarousel"))
+
 const cdata = [
   {
     title: "Boutique Space Greenville",
@@ -43,11 +49,7 @@ const cdata = [
         foornum: 1
       }
     ],
-    images: [
-      "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg",
-      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg",
-      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
-    ],
+    images: [city_1, city_2, city_3],
     features: [
       {
         title: "Features",
@@ -86,8 +88,7 @@ const cdata = [
         roomsB: "5",
         bathsB: "2",
         priceB: "$2,000",
-        img:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/03/floor-plan-3.jpg",
+        img: floorplan_1,
         desc:
           "Inside this enchanting home, the great room enjoys a fireplace and views of the rear patio. The secluded master suite at the front of the home delights in tons of natural light, a splendid bath, a sitting room with a fireplace, and a private lanai. Three upper-level bedrooms share an optional bonus room, perfect for a home gym, playroom, or studio. Click the home to see the layout!"
       }
@@ -95,38 +96,38 @@ const cdata = [
     walkscore: [{ title: "WalkScore", id: uuid(), isopen: false }],
     map: [{ title: "Map", id: uuid(), isopen: false }]
   }
-];
+]
 ///the bug with single page Navbar could be because the id changes when you refresh the page
 class SingleListing extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       cdata
-    };
+    }
   }
 
   //single page tab
   toggle = id => {
-    const { cdata } = this.state;
-    const updatedCdata = [...cdata];
+    const { cdata } = this.state
+    const updatedCdata = [...cdata]
     updatedCdata.map(x => {
       if (x.address[0].id === id) {
-        x.address[0].isopen = !x.address[0].isopen;
+        x.address[0].isopen = !x.address[0].isopen
       } else if (x.details[0].id === id) {
-        x.details[0].isopen = !x.details[0].isopen;
+        x.details[0].isopen = !x.details[0].isopen
       } else if (x.features[0].id === id) {
-        x.features[0].isopen = !x.features[0].isopen;
+        x.features[0].isopen = !x.features[0].isopen
       } else if (x.walkscore[0].id === id) {
-        x.walkscore[0].isopen = !x.walkscore[0].isopen;
+        x.walkscore[0].isopen = !x.walkscore[0].isopen
       } else if (x.map[0].id === id) {
-        x.map[0].isopen = !x.map[0].isopen;
+        x.map[0].isopen = !x.map[0].isopen
       } else if (x.floorplan[0].id === id) {
-        x.floorplan[0].isopen = !x.floorplan[0].isopen;
+        x.floorplan[0].isopen = !x.floorplan[0].isopen
       }
-      return x;
-    });
-    this.setState({ cdata: updatedCdata });
-  };
+      return x
+    })
+    this.setState({ cdata: updatedCdata })
+  }
   render() {
     return (
       <React.Fragment>
@@ -346,10 +347,7 @@ class SingleListing extends Component {
                       }
                     >
                       <div className="walkscore-section">
-                        <img
-                          src="https://cdn.walk.sc/images/api-logo.png"
-                          alt="walkscore"
-                        />{" "}
+                        <img src={apiLogo_1} alt="walkscore" />{" "}
                         <span>: 48 / Car-Dependent</span>
                         <a
                           className="walkscore-link"
@@ -435,12 +433,12 @@ class SingleListing extends Component {
                   <SinglePageRight cdata={this.state.cdata} />
                 </div>
               </div>
-            );
+            )
           })}
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default SingleListing;
+export default SingleListing

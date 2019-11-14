@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
+import parallaxImage from "../../../../assets/parallax.jpg"
 
 class ClientStats extends Component {
   render() {
     return (
-      <div className="parallax">
+      <div
+        className="parallax"
+        style={{
+          backgroundImage: `url(${parallaxImage})`
+        }}
+      >
         <div className="parallax-item">
           <p>
             <span className="number">12</span>
@@ -29,8 +35,8 @@ class ClientStats extends Component {
           <button className="secondary-btn getintouch-btn">Get in touch</button>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ClientStats;
+export default ClientStats

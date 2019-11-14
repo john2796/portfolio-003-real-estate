@@ -1,4 +1,7 @@
-import React from "react";
+import React from "react"
+import iconEstate_1 from "../../../../assets/iconEstate_1.png"
+import iconEstate_2 from "../../../../assets/iconEstate_2.png"
+import iconEstate_3 from "../../../../assets/iconEstate_3.png"
 
 const Wpresidence = () => {
   return (
@@ -8,10 +11,7 @@ const Wpresidence = () => {
         <p className="wp-subtitle">the most advanced estate wordpress theme</p>
         <div className="wp-options">
           <div className="wp-options-item">
-            <img
-              src="https://losangeles.wpresidence.net/wp-content/uploads/2018/06/icon-estate-3-3-1-1-78x80.png"
-              alt="for sellers"
-            />
+            <img src={iconEstate_1} alt="for sellers" />
             <div className="item-info">
               <h2>For Sellers</h2>
               <p>
@@ -22,10 +22,7 @@ const Wpresidence = () => {
             </div>
           </div>
           <div className="wp-options-item">
-            <img
-              src="https://losangeles.wpresidence.net/wp-content/uploads/2018/06/estate_img_2-3-1-1-78x80.png"
-              alt="for sellers"
-            />
+            <img src={iconEstate_2} alt="for sellers" />
             <div className="item-info">
               <h2>For Renters</h2>
               <p>
@@ -36,10 +33,7 @@ const Wpresidence = () => {
             </div>
           </div>
           <div className="wp-options-item">
-            <img
-              src="https://losangeles.wpresidence.net/wp-content/uploads/2018/06/Icon-estate-1-3-1-1-78x80.png"
-              alt="for sellers"
-            />
+            <img src={iconEstate_3} alt="for sellers" />
             <div className="item-info">
               <h2>For Developers</h2>
               <p>
@@ -52,7 +46,7 @@ const Wpresidence = () => {
         </div>
       </div>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Wpresidence;
+export default Wpresidence

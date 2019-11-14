@@ -1,17 +1,19 @@
-import React, { Component } from "react";
-import Drawer from "../../../drawer/Drawer";
-import NavList from "../../../nav-list/NavList";
+import React, { Component } from "react"
+import Drawer from "../../../drawer/Drawer"
+import NavList from "../../../nav-list/NavList"
+import logo_la_transparent from "../../../../assets/logo_la_transparent.png"
+import logo from "../../../../assets/logo2018-v1-la.png"
 
 class Navbar extends Component {
   state = {
     left: false
-  };
+  }
 
   toggleDrawer = (side, open) => () => {
     this.setState({
       [side]: open
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -23,8 +25,7 @@ class Navbar extends Component {
                 <img
                   className="logo-image"
                   style={{ marginTop: 0 }}
-                  src="https://losangeles.wpresidence.net/wp-content/uploads/2018/06/logo2018-v1-la.png"
-                  // className="img-responsive retina_ready"
+                  src={logo}
                   alt="logo"
                 />
               </div>
@@ -47,15 +48,15 @@ class Navbar extends Component {
             <div className="logo-wrp">
               <img
                 className="tablet-logo"
-                src="https://losangeles.wpresidence.net/wp-content/uploads/2016/08/logo_la_transparent.png"
+                src={logo_la_transparent}
                 alt="tablet-logo"
               />
             </div>
           </div>
         </nav>
       </>
-    );
+    )
   }
 }
 
-export default Navbar;
+export default Navbar

@@ -1,21 +1,22 @@
 import React from "react"
 import { withRouter } from "react-router-dom"
+import footer_1 from "../../../assets/footer_1.jpg"
+import footer_2 from "../../../assets/footer_2.jpg"
+import footer_3 from "../../../assets/footer_3.jpg"
+
 const latestlisting = [
   {
-    image:
-      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/house_1920-105x70.jpeg",
+    image: footer_1,
     price: "$ 800",
     title: "Boutique Space Greenville"
   },
   {
-    image:
-      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstate1893-105x70.jpg",
+    image: footer_2,
     price: "$ 16,000 / month",
     title: "Office Space Central Ave"
   },
   {
-    image:
-      "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0733-105x70.jpg",
+    image: footer_3,
     price: "from $ 55,000",
     title: "Villa On Washington Ave"
   }

@@ -1,6 +1,7 @@
-import React from "react";
-import { Card, CardImg, CardBody, CardTitle } from "reactstrap";
-import styled from "styled-components";
+import React from "react"
+import { Card, CardImg, CardBody, CardTitle } from "reactstrap"
+import styled from "styled-components"
+import agent_2 from "../../../../assets/agent_2.jpg"
 
 const CardInfoStyle = styled.div`
   .cardinfo-img {
@@ -33,7 +34,7 @@ const CardInfoStyle = styled.div`
       margin-right: 10px;
     }
   }
-`;
+`
 const CardInfo = () => {
   return (
     <CardInfoStyle>
@@ -41,7 +42,7 @@ const CardInfo = () => {
         <CardImg
           top
           width="100%"
-          src="https://losangeles.wpresidence.net/wp-content/uploads/2014/05/agent2-525x328.jpg"
+          src={agent_2}
           alt="Card image cap"
           className="cardinfo-img"
         />
@@ -85,7 +86,7 @@ const CardInfo = () => {
         </CardBody>
       </Card>
     </CardInfoStyle>
-  );
-};
+  )
+}
 
-export default CardInfo;
+export default CardInfo

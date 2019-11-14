@@ -1,5 +1,8 @@
+$bg-img: url("/src/assets/parallax.jpg");
+
 .parallax {
-  background-image: url("https://losangeles.wpresidence.net/wp-content/uploads/2016/08/parallax.jpg");
+  // background-image: url("/src/assets/parallax.jpg");
+
   min-height: 300px;
   background-attachment: fixed;
   background-position: center;
