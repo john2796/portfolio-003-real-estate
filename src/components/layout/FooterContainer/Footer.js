@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import React from "react"
+import { withRouter } from "react-router-dom"
 const latestlisting = [
   {
     image:
@@ -19,8 +19,8 @@ const latestlisting = [
     price: "from $ 55,000",
     title: "Villa On Washington Ave"
   }
-];
-class Footer extends Component {
+]
+class Footer extends React.Component {
   render() {
     return (
       <>
@@ -86,7 +86,7 @@ class Footer extends Component {
                       <p className="item-price"> {list.price}</p>
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
 
@@ -108,7 +108,7 @@ class Footer extends Component {
           </div>
         </div>
       </>
-    );
+    )
   }
 }
-export default withRouter(Footer);
+export default withRouter(Footer)

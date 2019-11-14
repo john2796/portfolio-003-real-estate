@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
-import Header from "../../components/layout/HeaderContainer/Header";
-import Main from "../../components/layout/MainContainer/Main";
-import SingleListing from "../../components/layout/MainContainer/singleListing/SingleListing";
-import Footer from "../../components/layout/FooterContainer/Footer";
-import Properties from "../../components/properties/Properties";
+import React, { Component } from "react"
+import { Route, Switch } from "react-router-dom"
+import Header from "../../components/layout/HeaderContainer/Header"
+import Main from "../../components/layout/MainContainer/Main"
+import SingleListing from "../../components/layout/MainContainer/singleListing/SingleListing"
+import Footer from "../../components/layout/FooterContainer/Footer"
+import Properties from "../../components/properties/Properties"
 
 class Routes extends Component {
   render() {
@@ -16,8 +16,8 @@ class Routes extends Component {
         <Route path="/listing/:id" component={SingleListing} />
         <Footer />
       </React.Fragment>
-    );
+    )
   }
 }
 
-export default Routes;
+export default Routes
