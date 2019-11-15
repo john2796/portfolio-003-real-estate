@@ -1,4 +1,14 @@
-import { GET_LIST_ID } from "../actions/listingAction";
+import { GET_LIST_ID } from "../actions/listingAction"
+import city_1 from "../../assets/city_1.jpg"
+import city_2 from "../../assets/city_2.jpg"
+import city_3 from "../../assets/city_3.jpg"
+import house_1 from "../../assets/house_1.jpg"
+import house_2 from "../../assets/house_2.jpg"
+import house_3 from "../../assets/house_3.jpg"
+import house_4 from "../../assets/house_4.jpg"
+import house_5 from "../../assets/house_5.jpg"
+import house_6 from "../../assets/house_6.jpg"
+
 const cardData = [
   {
     id: 1,
@@ -8,16 +18,13 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
+        src: city_1
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+        src: city_2
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: city_3
       }
     ]
   },
@@ -29,12 +36,10 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: house_1
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_2
       }
     ]
   },
@@ -46,12 +51,10 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: house_3
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_4
       }
     ]
   },
@@ -63,12 +66,13 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: city_1
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: city_2
+      },
+      {
+        src: city_3
       }
     ]
   },
@@ -80,12 +84,13 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: city_1
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: city_2
+      },
+      {
+        src: city_3
       }
     ]
   },
@@ -97,12 +102,22 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: house_1
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_2
+      },
+      {
+        src: house_3
+      },
+      {
+        src: house_4
+      },
+      {
+        src: house_5
+      },
+      {
+        src: house_6
       }
     ]
   },
@@ -114,12 +129,16 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: house_3
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_4
+      },
+      {
+        src: house_5
+      },
+      {
+        src: house_6
       }
     ]
   },
@@ -131,12 +150,16 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: house_1
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_2
+      },
+      {
+        src: house_3
+      },
+      {
+        src: house_6
       }
     ]
   },
@@ -148,12 +171,13 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2018/04/new-980x777.jpeg"
+        src: house_4
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_5
+      },
+      {
+        src: house_6
       }
     ]
   },
@@ -165,16 +189,16 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
+        src: house_3
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+        src: house_4
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_5
+      },
+      {
+        src: house_6
       }
     ]
   },
@@ -186,33 +210,39 @@ const cardData = [
     author: "author field testing here",
     images: [
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2016/03/city_9-1-525x328.jpg"
+        src: house_1
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter1013-525x328.jpg"
+        src: house_2
       },
       {
-        src:
-          "https://losangeles.wpresidence.net/wp-content/uploads/2014/05/WPEstateImageAfter0913-525x328.jpg"
+        src: house_3
+      },
+      {
+        src: house_4
+      },
+      {
+        src: house_5
+      },
+      {
+        src: house_6
       }
     ]
   }
-];
+]
 
 const initialState = {
   cardData,
   listId: 1
-};
+}
 export default function listingReducer(state = initialState, action) {
   switch (action.type) {
     case GET_LIST_ID:
       return {
         ...state,
         listId: action.id
-      };
+      }
     default:
-      return state;
+      return state
   }
 }

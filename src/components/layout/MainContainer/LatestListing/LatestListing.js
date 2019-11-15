@@ -1,38 +1,34 @@
-import React, { Component, lazy, Suspense } from "react";
-import ToolTipPage from "../../../toolTip/Tooltip";
-import { connect } from "react-redux";
-const ListingCard = lazy(() => import("./ListingCard"));
-const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"];
+import React, { Component, lazy, Suspense } from "react"
+import ToolTipPage from "../../../toolTip/Tooltip"
+import { connect } from "react-redux"
+const ListingCard = lazy(() => import("./ListingCard"))
+const tabData = ["Apartments", "Houses", "Villas", "Retail", "Land"]
 
 class LatestListing extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       tabs: tabData,
       selected: "Apartments",
       tooltipOpen: false
-    };
+    }
   }
 
   filterData = () => {
-    const cardData = this.props.cardData;
-    if (this.state.selected === "needtochangelaterbugissue") {
-      return cardData;
-    } else {
-      return cardData.filter(data => data.tab === this.state.selected);
-    }
-  };
+    const cardData = this.props.cardData
+    return cardData.filter(data => data.tab === this.state.selected)
+  }
   selectedTab = tab => {
-    this.setState({ selected: tab });
-  };
+    this.setState({ selected: tab })
+  }
   toggle = () => {
     this.setState({
       tooltipOpen: !this.state.tooltipOpen
-    });
-  };
+    })
+  }
 
   render() {
-    const { tabs, selected } = this.state;
+    const { tabs, selected } = this.state
     return (
       <React.Fragment>
         <svg
@@ -76,14 +72,14 @@ class LatestListing extends Component {
                   <div key={idx} className="listing-card">
                     <ListingCard
                       id={item.id}
-                      images={item.images}
+                      images={item.images} //array of images
                       tooltipOpen={this.state.tooltipOpen}
                       toggle={this.toggle}
                       selected={selected}
                       selectedTab={this.selectedTab}
                     />
                   </div>
-                );
+                )
               })}
             </Suspense>
           </div>
@@ -92,11 +88,11 @@ class LatestListing extends Component {
           </ToolTipPage>
         </div>
       </React.Fragment>
-    );
+    )
   }
 }
 const mapStateToProps = state => ({
   cardData: state.listing.cardData
-});
+})
 
-export default connect(mapStateToProps)(LatestListing);
+export default connect(mapStateToProps)(LatestListing)

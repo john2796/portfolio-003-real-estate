@@ -47,6 +47,8 @@ class ListingCard extends Component {
     const slides = images.map((item, index) => {
       let computedClass =
         index === this.state.activeIndex ? "slide active" : "slide"
+
+      console.log(item.src)
       return (
         <div key={index} className={computedClass}>
           <div
